@@ -1,0 +1,429 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\title{Chapter 4: Quantization of Light \\ \large Modern Physics Study Notes}
+\author{}
+\date{}
+\maketitle
+
+\section{Quantization (Section 4.1)}
+\textbf{Quantization} means a physical quantity can only take on certain discrete (separate, fixed) values, rather than any continuous value.
+
+Examples:
+\begin{itemize}
+    \item Electric charge is quantized: $q = n e$, where $e = 1.60 \times 10^{-19}~\mathrm{C}$.
+    \item Matter is quantized: everything is made of atoms.
+    \item Radiation (light) is quantized: it comes in discrete packets called \textbf{photons}.
+\end{itemize}
+
+\subsection*{Photons}
+A \textbf{photon} is a single quantum (packet) of electromagnetic radiation. Each photon has:
+\begin{align}
+    E &= h f \label{eq:photonEnergy} \\
+    p &= \frac{h}{\lambda} \label{eq:photonMomentum}
+\end{align}
+
+Where:
+\begin{itemize}
+    \item $E$ is the energy of \emph{one photon} of the light beam (units: J).
+    \item $p$ is the momentum carried by \emph{one photon} (units: kg$\cdot$m/s).
+    \item $h$ is Planck's constant, $h = 6.626 \times 10^{-34}~\mathrm{J \cdot s}$.
+    \item $f$ is the frequency of the electromagnetic wave / light (Hz = s$^{-1}$).
+    \item $\lambda$ is the wavelength of that same light wave (m).
+\end{itemize}
+
+Key idea: photons have both particle-like properties (energy $E$, momentum $p$) and wave-like properties (frequency $f$, wavelength $\lambda$). This is the first sign of \textbf{particle--wave duality}.
+
+\section{Blackbody Radiation (Section 4.2)}
+A \textbf{blackbody} is an ideal object that:
+\begin{itemize}
+    \item absorbs \emph{all} incoming radiation,
+    \item emits radiation that depends \emph{only} on its temperature $T$.
+\end{itemize}
+
+Examples: glowing metal, a hot stove filament, the Sun's surface, the inside of a very small hole in an oven-like cavity.
+
+Experimentally observed:
+\begin{itemize}
+    \item Hotter objects emit \emph{more} radiation overall.
+    \item As temperature $T$ increases, the peak of the emitted spectrum shifts to \emph{shorter} wavelengths (more blue).
+\end{itemize}
+
+\subsection*{The classical prediction (Rayleigh--Jeans)}
+Classical physics treated the radiation inside the cavity as standing electromagnetic waves. Each standing wave mode acts like a harmonic oscillator that can have any (continuous) energy. The Rayleigh--Jeans law predicts the energy density per wavelength goes like
+\[
+    u(\lambda, T) \propto \frac{T}{\lambda^4}.
+\]
+This works at long wavelengths (radio / infrared), but at short wavelengths it blows up $\rightarrow$ the ``ultraviolet catastrophe.''
+
+\subsection*{Planck's hypothesis (1900)}
+Planck proposed something radical:
+\[
+    E_n = n h f, \quad n = 0,1,2,\dots
+\]
+Where:
+\begin{itemize}
+    \item $E_n$ is the allowed energy of one electromagnetic mode (one ``oscillator'') in the cavity,
+    \item $f$ is the frequency of that mode,
+    \item $n$ is an integer,
+    \item $h$ is Planck's constant.
+\end{itemize}
+
+Meaning:
+\begin{itemize}
+    \item Energy is not continuous. It comes in \emph{quanta} of size $h f$.
+    \item When the blackbody emits radiation of frequency $f$, it does so by emitting photons of energy $E = h f$.
+\end{itemize}
+
+Planck's idea successfully fits \emph{all} blackbody data at \emph{all} wavelengths and temperatures. This marks the birth of quantum theory. The constant $h$ was first extracted from this fit.
+
+\section{The Photoelectric Effect (Section 4.3)}
+\textbf{Photoelectric effect}: shining light on a metal surface can eject electrons from that surface.
+
+Discovered by Hertz (1887). Explained by Einstein (1905).
+
+\subsection*{Experimental setup}
+Light of frequency $f$ hits a metal cathode. Electrons are emitted and can be collected by an anode to make a current. If we apply a \textbf{stopping potential} $V_s$ (a reverse voltage) large enough, even the fastest electrons will be stopped.
+
+The maximum kinetic energy of the emitted electrons is measured via:
+\begin{equation}
+    e V_s = K_{\max} .
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $e = 1.60 \times 10^{-19}~\mathrm{C}$ is the magnitude of the electron charge,
+    \item $V_s$ is the stopping potential (volts),
+    \item $K_{\max}$ is the maximum kinetic energy of the emitted (photo)electrons (units: J or eV).
+\end{itemize}
+
+\subsection*{Classical expectations (wrong)}
+Classical wave theory said:
+\begin{itemize}
+    \item Increasing light intensity should make electrons come off with \emph{more} kinetic energy.
+    \item \emph{Any} light, if intense enough, should eject electrons, eventually.
+\end{itemize}
+
+Observed instead:
+\begin{itemize}
+    \item Below some threshold frequency $f_0$, \emph{no electrons are ejected at all}, no matter how intense the light is.
+    \item Increasing intensity increases the \emph{number} of emitted electrons, not their maximum kinetic energy.
+\end{itemize}
+
+\subsection*{Einstein's photon explanation}
+Einstein said: Treat light as photons. Each photon of frequency $f$ carries energy $E = h f$. One photon interacts with one electron.
+
+Energy conservation for that one electron:
+\begin{equation}
+    h f = \phi + K_{\max}
+    \label{eq:photoelectric}
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $h f$ is the energy of a \emph{single incoming photon} (frequency $f$),
+    \item $\phi$ is the \textbf{work function} of the metal (the minimum energy required to free an electron from the surface),
+    \item $K_{\max}$ is the maximum kinetic energy of an emitted electron.
+\end{itemize}
+
+Combining with $K_{\max} = e V_s$ gives:
+\begin{equation}
+    h f = \phi + e V_s.
+\end{equation}
+
+Rearrange \eqref{eq:photoelectric} to get:
+\begin{equation}
+    K_{\max} = h f - \phi.
+\end{equation}
+
+This predicts a \textbf{threshold frequency}:
+\begin{equation}
+    f_0 = \frac{\phi}{h}
+\end{equation}
+Below $f_0$ no electrons can be ejected, because each photon simply doesn't carry enough energy to overcome $\phi$.
+
+\subsection*{Photon energy and wavelength}
+Useful alternate form for the photon energy:
+\begin{equation}
+    E_{\text{photon}} = h f = \frac{h c}{\lambda}.
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $E_{\text{photon}}$ is the energy of one photon,
+    \item $c = 3.00 \times 10^8~\mathrm{m/s}$ is the speed of light,
+    \item $\lambda$ is the photon's wavelength.
+\end{itemize}
+
+A common shortcut (when using electronvolts and nanometers):
+\[
+    h c \approx 1240~\text{eV}\cdot\text{nm}.
+\]
+
+So, for example,
+\[
+    E_{\text{photon}} (\text{in eV}) \approx \frac{1240~\text{eV}\cdot\text{nm}}{\lambda~(\text{in nm})}.
+\]
+
+\section{X-Rays and Bragg Diffraction (Section 4.4)}
+\subsection*{What are X-rays?}
+X-rays are high-frequency electromagnetic waves with very short wavelengths:
+\[
+    0.001~\text{nm} \lesssim \lambda \lesssim 1~\text{nm}.
+\]
+Shorter wavelength $\Rightarrow$ higher photon energy. Typical X-ray photon energies are $\sim \text{keV}$ (kiloelectronvolts).
+
+They are commonly generated in an X-ray tube:
+\begin{itemize}
+    \item Electrons are accelerated through a high voltage $V_0$ (thousands of volts).
+    \item These high-energy electrons smash into a metal anode and decelerate suddenly.
+    \item That rapid deceleration produces X-ray photons.
+\end{itemize}
+
+Two mechanisms:
+\begin{enumerate}
+    \item \textbf{Bremsstrahlung} (``braking radiation''): a continuous spectrum from electrons being slowed near nuclei.
+    \item \textbf{Characteristic X-rays}: sharp lines at specific energies that depend on the target material, caused by inner-shell electrons being knocked out and higher-shell electrons dropping down to fill the hole.
+\end{enumerate}
+
+For characteristic X-rays, the emitted photon energy is roughly
+\[
+    E_\gamma = E_{\text{outer shell}} - E_{\text{inner shell}}.
+\]
+
+\subsection*{Wave nature of X-rays: Bragg diffraction}
+Experiments by Laue (1912) and the Braggs (1913) proved that X-rays behave as waves and diffract from crystals.
+
+A crystal can be seen as many parallel atomic planes separated by distance $d$. Constructive interference (a strong reflected intensity) occurs when \textbf{Bragg's law} is satisfied:
+\begin{equation}
+    2 d \sin \theta = n \lambda.
+    \label{eq:bragg}
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $d$ is the spacing between adjacent crystal planes (m),
+    \item $\theta$ is the ``glancing angle'' between the incident X-ray beam and the crystal plane (this is the angle used in Bragg scattering, not necessarily the same as the usual angle from the surface normal),
+    \item $n = 1,2,3,\dots$ is the diffraction order,
+    \item $\lambda$ is the X-ray wavelength (m).
+\end{itemize}
+
+Bragg diffraction lets us:
+\begin{itemize}
+    \item measure unknown X-ray wavelengths $\lambda$,
+    \item determine crystal structure (X-ray crystallography),
+    \item famously, determine the double-helix structure of DNA.
+\end{itemize}
+
+\section{X-Ray Spectra and the Duane--Hunt Law (Section 4.5)}
+When you measure the intensity of X-rays from an X-ray tube as a function of frequency $f$ (or wavelength $\lambda$), you observe:
+\begin{itemize}
+    \item a smooth ``continuous'' background from bremsstrahlung,
+    \item sharp peaks at specific frequencies (the characteristic X-rays),
+    \item a hard cutoff: no X-rays above some maximum frequency $f_{\max}$.
+\end{itemize}
+
+This maximum frequency is set only by the accelerating voltage, not by the anode material. This is summarized by the Duane--Hunt law:
+\begin{equation}
+    h f_{\max} = e V_0.
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $f_{\max}$ is the highest photon frequency produced in the tube,
+    \item $h$ is Planck's constant,
+    \item $e$ is the electron charge,
+    \item $V_0$ is the accelerating voltage applied to the electrons in the tube.
+\end{itemize}
+
+We can rewrite this as
+\begin{equation}
+    f_{\max} = \frac{e V_0}{h}
+    \qquad \text{and} \qquad
+    \lambda_{\min} = \frac{h c}{e V_0}.
+\end{equation}
+
+Meaning: an electron accelerated through $V_0$ can give \emph{at most} all its kinetic energy to a single photon. That limits the smallest possible wavelength / highest possible frequency of the emitted X-ray.
+
+\section{The Compton Effect (Section 4.6)}
+\subsection*{Observation}
+When high-energy electromagnetic radiation (like X-rays) scatters off (approximately) free electrons, the scattered radiation is found to have \emph{lower frequency} and therefore \emph{longer wavelength} than the incident radiation.
+
+Classically, you'd expect the scattered wave to come off with the same frequency (no change), $f = f_0$. But in reality, $f < f_0$.
+
+\subsection*{Compton's interpretation}
+Arthur Compton (1923) treated the collision between a photon and an electron like a two-body collision obeying conservation of energy and momentum.
+
+\begin{itemize}
+    \item Before: a photon with wavelength $\lambda_0$, energy $E_0 = h f_0 = \frac{h c}{\lambda_0}$ and momentum $p_0 = \frac{h}{\lambda_0}$, hits an electron (initially at rest).
+    \item After: a photon scatters at an angle $\theta$ with new wavelength $\lambda$ (so new energy $E = h f = \frac{h c}{\lambda}$), and the electron recoils with some kinetic energy.
+\end{itemize}
+
+Solving conservation of energy and momentum gives the \textbf{Compton shift formula}:
+\begin{equation}
+    \Delta \lambda = \lambda - \lambda_0 = \frac{h}{m c} (1 - \cos \theta).
+    \label{eq:compton}
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $\lambda_0$ is the initial photon wavelength,
+    \item $\lambda$ is the scattered photon wavelength,
+    \item $\Delta \lambda = \lambda - \lambda_0$ is the increase in wavelength,
+    \item $\theta$ is the scattering angle of the photon (angle between the incident and scattered photon directions),
+    \item $m$ is the electron rest mass ($m = 9.11 \times 10^{-31}~\mathrm{kg}$),
+    \item $c$ is the speed of light in vacuum.
+\end{itemize}
+
+Important features:
+\begin{itemize}
+    \item $\Delta \lambda = 0$ if $\theta = 0^\circ$ (no change in direction, no change in wavelength).
+    \item $\Delta \lambda$ is largest at $\theta = 180^\circ$ (backscattering).
+    \item The prefactor $\dfrac{h}{m c}$ is called the \textbf{Compton wavelength of the electron}:
+    \[
+        \frac{h}{m c} = 2.43 \times 10^{-12}~\text{m} = 0.00243~\text{nm}.
+    \]
+\end{itemize}
+
+Why you don't notice this for visible light: visible light has wavelengths $\sim 500~\text{nm}$, so adding $\sim 0.002~\text{nm}$ is a tiny fractional change. For X-rays ($\lambda \sim 0.1~\text{nm}$), the fractional change is large enough to measure.
+
+This was direct proof that photons carry momentum and behave like particles in collisions.
+
+\section{Particle--Wave Duality (Section 4.7)}
+Light has:
+\begin{itemize}
+    \item \textbf{Wave-like behavior}: interference, diffraction, Bragg scattering.
+    \item \textbf{Particle-like behavior}: photoelectric effect (photons eject electrons), Compton scattering (photon-electron collisions), discrete energy packets $E = h f$.
+\end{itemize}
+
+We summarize photon behavior with:
+\begin{align}
+    E &= h f, \\
+    p &= \frac{h}{\lambda}.
+\end{align}
+
+This duality is not just for light. In later chapters you'll see that \emph{matter} (electrons, neutrons, etc.) also shows wave-like behavior.
+
+\newpage
+\section*{Key Equations + Variable Definitions}
+
+This section is for fast exam review.
+
+\subsection*{Photon energy}
+\begin{equation}
+    E = h f
+\end{equation}
+$E$: energy of one photon of light \\
+$f$: frequency of that light wave \\
+$h$: Planck's constant
+
+\subsection*{Photon momentum}
+\begin{equation}
+    p = \frac{h}{\lambda}
+\end{equation}
+$p$: momentum carried by a single photon \\
+$\lambda$: wavelength of that photon
+
+\subsection*{Blackbody quantization}
+\begin{equation}
+    E_n = n h f, \quad n = 0,1,2,\dots
+\end{equation}
+$E_n$: allowed energy level of one electromagnetic mode in a blackbody cavity \\
+$f$: frequency of that mode \\
+$n$: integer (quantum number)
+
+\subsection*{Photoelectric effect energy balance}
+\begin{equation}
+    h f = \phi + K_{\max} = \phi + e V_s
+\end{equation}
+$f$: frequency of the incoming light \\
+$\phi$: work function of the metal (minimum energy to free an electron) \\
+$K_{\max}$: max kinetic energy of emitted electron \\
+$e$: electron charge \\
+$V_s$: stopping potential (voltage needed to stop even the fastest emitted electrons)
+
+Equivalent form:
+\begin{equation}
+    K_{\max} = h f - \phi
+\end{equation}
+
+\subsection*{Threshold frequency}
+\begin{equation}
+    f_0 = \frac{\phi}{h}
+\end{equation}
+$f_0$: minimum light frequency needed to eject electrons \\
+$\phi$: work function \\
+$h$: Planck's constant
+
+\subsection*{Photon energy vs wavelength}
+\begin{equation}
+    E_{\text{photon}} = \frac{h c}{\lambda}
+\end{equation}
+$E_{\text{photon}}$: energy of one photon \\
+$c$: speed of light in vacuum \\
+$\lambda$: photon wavelength
+
+Numerical shortcut: $h c \approx 1240~\text{eV} \cdot \text{nm}$.
+
+\subsection*{Bragg diffraction (X-ray crystallography)}
+\begin{equation}
+    2 d \sin \theta = n \lambda
+\end{equation}
+$d$: spacing between atomic planes in a crystal \\
+$\theta$: glancing angle between incoming beam and the crystal plane \\
+$n$: diffraction order (1,2,3,\dots) \\
+$\lambda$: X-ray wavelength
+
+This tells you when reflected/scattered X-rays from different planes will interfere constructively.
+
+\subsection*{Duane--Hunt law (X-ray cutoff)}
+\begin{equation}
+    h f_{\max} = e V_0
+\end{equation}
+$f_{\max}$: maximum frequency of X-rays produced in the tube \\
+$V_0$: accelerating voltage applied to the electrons \\
+$e$: electron charge \\
+$h$: Planck's constant
+
+Also:
+\begin{equation}
+    \lambda_{\min} = \frac{h c}{e V_0}
+\end{equation}
+$\lambda_{\min}$: shortest wavelength X-ray that can be produced at that voltage
+
+\subsection*{Compton scattering / Compton shift}
+\begin{equation}
+    \Delta \lambda = \lambda - \lambda_0 = \frac{h}{m c} (1 - \cos \theta)
+\end{equation}
+$\Delta \lambda$: increase in wavelength of the scattered photon \\
+$\lambda_0$: initial photon wavelength \\
+$\lambda$: scattered photon wavelength \\
+$\theta$: scattering angle of the photon \\
+$m$: electron rest mass \\
+$c$: speed of light
+
+The constant $\dfrac{h}{m c} = 2.43 \times 10^{-12}~\text{m}$ is the \textbf{Compton wavelength of the electron}.
+
+\subsection*{Wave-particle duality summary}
+\begin{align}
+    E &= h f \\
+    p &= \frac{h}{\lambda}
+\end{align}
+These two equations link the wave description (frequency $f$, wavelength $\lambda$) to the particle description (energy $E$, momentum $p$) of light.
+
+\end{document}
