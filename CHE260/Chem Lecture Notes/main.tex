@@ -1,0 +1,1925 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{float}
+
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+\sisetup{per-mode=symbol}\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{float}
+
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+\sisetup{per-mode=symbol}
+
+
+\title{Heat Transfer: Mechanisms and Steady Conduction\\
+Lecture Notes }
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Chapter 16: Mechanisms of Heat Transfer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{16.1 Introduction to Heat Transfer}
+
+\textbf{Heat transfer} is the movement of energy due to a temperature difference.  
+It is distinct from thermodynamics:
+
+\begin{itemize}[nosep]
+    \item \textbf{Thermodynamics:} Deals with initial and final equilibrium states.
+    \item \textbf{Heat transfer:} Deals with the \emph{rate} and \emph{mechanism} of energy transfer
+    between locations at different temperatures.
+\end{itemize}
+
+There are three basic mechanisms of heat transfer:
+\begin{enumerate}[nosep]
+    \item \textbf{Conduction} – is the transfer of heat
+from the more energetic particles of a substance to the adjacent less energetic ones as a result of interactions between
+the particles.
+    \item \textbf{Convection} – is the transfer of heat between a solid surface and an adjacent moving fluid.
+    \item \textbf{Thermal radiation} – energy transfer by electromagnetic waves due to the
+    temperature of the bodies.
+\end{enumerate}
+
+In many practical situations, more than one mechanism acts simultaneously (e.g.\ hot object in
+air loses heat by both convection and radiation).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{16.2 Conduction and Fourier’s Law}
+
+Consider a plane wall of thickness $\Delta x$ and area $A$, with its two faces held at
+temperatures $T_1$ and $T_2$ $(T_1 > T_2)$.
+Heat flows in the $x$-direction from the hot side to the cold side by conduction.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/chap16_page2.png}
+    \caption{Illustration of conduction through a plane wall.}
+    \label{fig:chap16-conduction}
+\end{figure}
+
+\newpage
+
+\subsubsection*{Macroscopic form of Fourier’s law}
+
+The rate of heat transfer by conduction through the wall is
+
+\begin{equation}
+    \dot{Q}_{\text{cond}} = k A \frac{T_1 - T_2}{\Delta x}
+    \label{eq:fourier-macro}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $\dot{Q}_{\text{cond}}$ = rate of heat transfer by conduction (\si{\watt})
+    \item $k$ = thermal conductivity of the material (\si{\watt\per\meter\per\kelvin})
+    \item $A$ = cross-sectional area normal to heat flow (\si{\meter\squared})
+    \item $T_1, T_2$ = temperatures on the two faces of the wall (\si{\kelvin} or \si{\celsius})
+    \item $\Delta x$ = wall thickness (\si{\meter})
+\end{itemize}
+
+\textbf{Purpose:} Eq.~\eqref{eq:fourier-macro} gives the \emph{overall rate} of heat conduction through
+a plane layer when the temperature difference and thickness are known.
+
+\subsubsection*{Differential form (one-dimensional steady conduction)}
+
+In the limit as $\Delta x \to 0$, we obtain the differential form
+
+\begin{equation}
+    \dot{Q}_{\text{cond}} = -k A \frac{dT}{dx}
+    \label{eq:fourier-diff}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $\frac{dT}{dx}$ = temperature gradient in the direction of heat flow (\si{\kelvin\per\meter}).
+\end{itemize}
+
+The minus sign indicates that heat flows in the direction of \emph{decreasing} temperature
+(i.e.\ from hot to cold).
+
+\textbf{Purpose:} Eq.~\eqref{eq:fourier-diff} is used when the temperature varies continuously
+through the material and we want the local heat flux and differential equations for
+temperature distribution.
+
+\subsubsection*{Thermal conductivity}
+
+\textbf{Thermal conductivity} $k$ is the rate of heat transfer through a unit thickness 
+of the material per unit area per unit temperature difference (the ability of a material 
+to conduct heat).
+
+\begin{itemize}[nosep]
+    \item High $k$ (e.g.\ metals) $\rightarrow$ good conductors.
+    \item Low $k$ (e.g.\ foam, air) $\rightarrow$ good insulators.
+\end{itemize}
+
+Thermal conductivity generally depends on temperature and material structure
+(pure metals, alloys, gases, liquids, etc.).
+
+\paragraph{Microscopic interpretation.}
+Temperature represents the \textbf{average kinetic energy} of the molecules or atoms of a substance.  
+In liquids and gases, molecular motion includes translational, vibrational, and rotational components.  
+When faster (hotter) and slower (colder) molecules collide, part of the kinetic energy of the faster
+molecule is transferred to the slower one — much like elastic balls colliding at different velocities.
+The greater the temperature difference, the more energetic these collisions, and thus the higher the rate
+of energy transfer by conduction.
+
+\paragraph{Kinetic theory of gases.}
+From the kinetic theory, the thermal conductivity of gases is predicted — and experimentally confirmed — 
+to vary as:
+
+\begin{equation}
+    k \propto \frac{\sqrt{T}}{\sqrt{M}}
+    \label{eq:k-proportionality}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $T$ = thermodynamic temperature (\si{\kelvin})
+    \item $M$ = molar mass of the gas (\si{\kilogram\per\mole})
+\end{itemize}
+
+Thus, for a particular gas (fixed $M$), $k$ increases with temperature because higher molecular speeds
+increase the frequency of energy-exchanging collisions.  
+At a fixed temperature, gases with higher molar mass $M$ conduct heat less effectively because heavier
+molecules move more slowly.
+
+\textbf{Example:}  
+At $T = 1000~\si{\kelvin}$:
+\begin{equation}
+    k_{\text{He}} = 0.343~\si{\watt\per\meter\per\kelvin}, \quad
+    k_{\text{air}} = 0.0667~\si{\watt\per\meter\per\kelvin}
+    \label{eq:k-example}
+\end{equation}
+showing that helium ($M=4$) conducts heat much better than air ($M=29$).
+
+\begin{figure}[H]
+    \centering
+    % Left figure
+    \begin{minipage}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/Table16_1.png}
+        \caption{Representative thermal conductivity values for various materials.}
+        \label{fig:chap16-table}
+    \end{minipage}
+    \hfill
+    % Right figure
+    \begin{minipage}[t]{0.65\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/Figure 16_6.png}
+        \caption{Range of thermal conductivity of various materials at room temperature.}
+        \label{fig:chap16-range}
+    \end{minipage}
+\end{figure}
+
+\subsubsection*{Thermal Diffusivity}
+
+\textbf{Thermal diffusivity} $\alpha$ represents how quickly heat diffuses through a material.  
+It indicates how fast a material responds to changes in temperature — that is, how fast heat 
+spreads through it compared to how much energy it can store.
+
+\begin{equation}
+    \boxed{\alpha = \frac{k}{\rho c_p}} \quad [\si{\meter\squared\per\second}]
+    \label{eq:thermal-diffusivity}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $\alpha$ = thermal diffusivity (\si{\meter\squared\per\second})
+    \item $k$ = thermal conductivity (\si{\watt\per\meter\per\kelvin})
+    \item $\rho$ = density (\si{\kilogram\per\meter\cubed})
+    \item $c_p$ = specific heat capacity (\si{\joule\per\kilogram\per\kelvin})
+\end{itemize}
+
+\textbf{Concept:}
+\begin{itemize}[nosep]
+    \item $k$ measures how well a material \emph{conducts} heat.  
+    \item $\rho c_p$ measures how much heat the material can \emph{store}.  
+    \item Thus, $\alpha$ compares \emph{heat conduction} to \emph{heat storage}.
+\end{itemize}
+
+\textbf{Interpretation:}
+\begin{itemize}[nosep]
+    \item High $\alpha$ $\rightarrow$ heat diffuses quickly; the material reacts fast to temperature changes.
+    \item Low $\alpha$ $\rightarrow$ heat moves slowly; the material absorbs heat and warms up gradually.
+\end{itemize}
+
+\subsubsection*{Heat flux}
+
+The \textbf{heat flux} (heat transfer rate per unit area) is
+
+\begin{equation}
+    q_x'' = \frac{\dot{Q}_{\text{cond}}}{A} = -k \frac{dT}{dx}
+    \label{eq:heat-flux}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $q_x''$ = heat flux in the $x$-direction (\si{\watt\per\meter\squared}).
+\end{itemize}
+
+\textbf{Purpose:} $q_x''$ measures the intensity of conduction at a surface or inside a material.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{16.3 Convection}
+
+\textbf{Convection} is heat transfer between a solid surface and a moving fluid in contact
+with that surface. It combines:
+\begin{itemize}[nosep]
+    \item \textbf{Conduction} within the fluid layer adjacent to the surface, and
+    \item \textbf{Bulk fluid motion} carrying energy away or toward the surface.
+\end{itemize}
+
+Convection is classified as:
+\begin{itemize}[nosep]
+    \item \textbf{Forced convection:} Fluid motion is caused by external means
+    (fan, pump, wind, etc.).
+    \item \textbf{Natural (free) convection:} Fluid motion is due to density differences
+    caused by temperature gradients (buoyancy-driven).
+\end{itemize}
+
+\subsubsection*{Newton’s law of cooling}
+
+The convective heat transfer rate from a surface at temperature $T_s$ to a fluid of
+temperature $T_\infty$ is
+
+\begin{equation}
+    \dot{Q}_{\text{conv}} = h A_s (T_s - T_\infty)
+    \label{eq:newton-cooling}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $\dot{Q}_{\text{conv}}$ = convective heat transfer rate (\si{\watt})
+    \item $h$ = convection heat transfer coefficient (\si{\watt\per\meter\squared\per\kelvin})
+    \item $A_s$ = surface area where convection occurs (\si{\meter\squared})
+    \item $T_s$ = surface temperature (\si{\kelvin} or \si{\celsius})
+    \item $T_\infty$ = temperature of the fluid far from the surface (\si{\kelvin} or \si{\celsius})
+\end{itemize}
+
+\textbf{Purpose:} Eq.~\eqref{eq:newton-cooling} is the basic correlation used to compute
+convective heat loss or gain from surfaces when $h$ is known (typically from correlations
+in later chapters).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/chap16_page10.png}
+    \caption{Illustration of convection from a surface to a moving fluid.}
+    \label{fig:chap16-conv}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{16.4 Thermal Radiation}
+
+\textbf{Thermal radiation} is the transfer of energy by electromagnetic waves (photons)
+emitted by matter because of its temperature.
+
+Key characteristics:
+\begin{itemize}[nosep]
+    \item Does not require a medium (can occur in a vacuum).
+    \item Travels at the speed of light.
+    \item Is characterized by wavelength and direction.
+    \item All bodies at a temperature above absolute zero emit thermal radiation.
+\end{itemize}
+
+In heat transfer, we are primarily interested in \textbf{thermal radiation}, i.e.\ the portion
+of electromagnetic radiation emitted due to the temperature of a body (not x-rays, radio waves,
+etc.\ that may be unrelated to temperature).
+
+Radiation is fundamentally a \textbf{volumetric} phenomenon (emission occurs within the medium),
+but for opaque solids it is usually treated as a \textbf{surface} phenomenon, since radiation
+emitted from deeper layers is absorbed within a few micrometres of the surface.
+
+% --------------------------------------------------------
+\subsubsection*{Blackbody and Stefan--Boltzmann law}
+
+An ideal surface that emits the \emph{maximum possible} radiation at a given temperature is called a
+\textbf{blackbody}. The radiation it emits is \textbf{blackbody radiation}.
+
+The maximum rate of radiation that can be emitted from a surface of area $A_s$ at thermodynamic
+temperature $T_s$ is given by the \textbf{Stefan--Boltzmann law}:
+\begin{equation}
+    \dot{Q}_{\text{emit,max}} = \sigma A_s T_s^4
+    \label{eq:stefan-boltzmann}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $\dot{Q}_{\text{emit,max}}$ = maximum radiative heat emission rate from the surface (\si{\watt})
+    \item $\sigma$ = Stefan--Boltzmann constant,
+          $\sigma = 5.670\times 10^{-8}~\si{\watt\per\meter\squared\per\kelvin\tothe{4}}$
+    \item $A_s$ = surface area (\si{\meter\squared})
+    \item $T_s$ = surface absolute temperature (\si{\kelvin})
+\end{itemize}
+
+Sometimes it is convenient to define the \textbf{blackbody emissive power} (radiation per unit area):
+\begin{equation}
+    E_b = \sigma T_s^4
+    \label{eq:blackbody-emissive}
+\end{equation}
+so that $\dot{Q}_{\text{emit,max}} = A_s E_b$.
+
+\textbf{Purpose:} Eq.~\eqref{eq:stefan-boltzmann} gives the theoretical upper limit on radiation emission
+from a surface at temperature $T_s$ (blackbody).
+
+% --------------------------------------------------------
+\subsubsection*{Real surfaces and emissivity}
+
+Real surfaces emit less radiation than a blackbody at the same temperature.  
+This deviation is quantified by the \textbf{emissivity} $\varepsilon$:
+\begin{equation}
+    \dot{Q}_{\text{emit}} = \varepsilon \sigma A_s T_s^4
+    \label{eq:real-surface-emission}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $\dot{Q}_{\text{emit}}$ = radiative heat emission rate from the real surface (\si{\watt})
+    \item $\varepsilon$ = emissivity of the surface, $0 \le \varepsilon \le 1$ (dimensionless)
+\end{itemize}
+
+An ideal blackbody has $\varepsilon = 1$.  
+Typical emissivities for common materials at $T \approx 300~\si{\kelvin}$ are listed in Table 16--6.
+
+\textbf{Interpretation:}
+\begin{itemize}[nosep]
+    \item $\varepsilon$ close to 1 $\rightarrow$ surface is a good emitter and good absorber.
+    \item $\varepsilon$ small $\rightarrow$ surface is a poor emitter/absorber (often a good reflector).
+\end{itemize}
+
+% --------------------------------------------------------
+\subsubsection*{Absorptivity and Kirchhoff’s law}
+
+In addition to emitting radiation, a surface can \textbf{absorb} or \textbf{reflect}
+incident radiation. For opaque surfaces (no transmission),
+\begin{equation}
+    \alpha + \rho = 1
+    \label{eq:alpha-plus-rho}
+\end{equation}
+where
+\begin{itemize}[nosep]
+    \item $\alpha$ = \textbf{absorptivity}: fraction of incident radiation absorbed,
+    \item $\rho$ = reflectivity: fraction reflected.
+\end{itemize}
+
+The rate at which a surface absorbs radiation is
+\begin{equation}
+    \dot{Q}_{\text{absorbed}} = \alpha \,\dot{Q}_{\text{incident}}
+    \label{eq:absorbed}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $\dot{Q}_{\text{absorbed}}$ = rate of radiation energy absorbed by the surface (\si{\watt})
+    \item $\dot{Q}_{\text{incident}}$ = rate of incident radiation on the surface (\si{\watt})
+    \item $\alpha$ = absorptivity (dimensionless, $0 \le \alpha \le 1$)
+\end{itemize}
+
+A blackbody has $\alpha = 1$ and absorbs all incident radiation.
+
+\paragraph{Kirchhoff’s law of radiation.}
+For a surface in thermal equilibrium at a given temperature and wavelength,
+\begin{equation}
+    \varepsilon = \alpha
+    \label{eq:kirchhoff}
+\end{equation}
+That is, \emph{good emitters are also good absorbers} (and poor emitters are poor absorbers).
+
+% --------------------------------------------------------
+\subsubsection*{Net radiation exchange with large surroundings}
+
+Consider a small surface ($A_s$) of emissivity $\varepsilon$ at temperature $T_s$, completely
+enclosed by a much larger isothermal surface at temperature $T_{\text{sur}}$ that behaves as a blackbody.
+The net radiation heat transfer from the small surface to the surroundings is:
+
+\begin{equation}
+    \dot{Q}_{\text{rad}} = \varepsilon \sigma A_s \left( T_s^4 - T_{\text{sur}}^4 \right)
+    \label{eq:net-rad}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $\dot{Q}_{\text{rad}}$ = net radiative heat transfer from the surface (\si{\watt})
+    \item $T_{\text{sur}}$ = absolute temperature of the surrounding surfaces (\si{\kelvin})
+\end{itemize}
+
+\textbf{Purpose:} Eq.~\eqref{eq:net-rad} is used when a surface exchanges radiation with
+large, approximately isothermal surroundings (e.g.\ a small object in a large room or the sky).
+
+% --------------------------------------------------------
+\subsubsection*{Combined convection and radiation}
+
+In many practical situations (e.g.\ a hot surface in air), heat transfer from a surface occurs
+\emph{simultaneously} by convection and radiation.
+
+The total heat transfer rate is obtained by adding the convective and radiative contributions:
+\begin{equation}
+    \dot{Q}_{\text{total}} = \dot{Q}_{\text{conv}} + \dot{Q}_{\text{rad}}
+    \label{eq:qtotal-sum}
+\end{equation}
+
+With
+\begin{equation}
+    \dot{Q}_{\text{conv}} = h_{\text{conv}} A_s (T_s - T_\infty),
+    \qquad
+    \dot{Q}_{\text{rad}} = \varepsilon \sigma A_s (T_s^4 - T_{\text{sur}}^4),
+    \label{eq:qconv-qrad-def}
+\end{equation}
+we can define a \textbf{combined heat transfer coefficient} $h_{\text{combined}}$ such that
+\begin{equation}
+    \dot{Q}_{\text{total}} = h_{\text{combined}} A_s (T_s - T_\infty)
+    \label{eq:qtotal-combined}
+\end{equation}
+
+For many engineering applications it is reasonable to take $T_{\text{sur}} \approx T_\infty$,
+which leads to
+\begin{equation}
+    h_{\text{combined}} = h_{\text{conv}} + h_{\text{rad}}
+    \label{eq:hcombined-def}
+\end{equation}
+with the \textbf{radiation heat transfer coefficient}
+\begin{equation}
+    h_{\text{rad}} = \varepsilon \sigma (T_s + T_{\text{sur}})(T_s^2 + T_{\text{sur}}^2)
+    \label{eq:hrad}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $h_{\text{conv}}$ = convection heat transfer coefficient (\si{\watt\per\meter\squared\per\kelvin})
+    \item $h_{\text{rad}}$ = equivalent radiation heat transfer coefficient (\si{\watt\per\meter\squared\per\kelvin})
+    \item $h_{\text{combined}}$ = effective combined convection–radiation coefficient (\si{\watt\per\meter\squared\per\kelvin})
+    \item $T_\infty$ = fluid (air) temperature far from the surface (\si{\kelvin})
+\end{itemize}
+
+\textbf{Purpose:} Using $h_{\text{combined}}$ allows us to treat convection and radiation together as one
+effective surface heat transfer mechanism when computing overall energy balances.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{16.5 Simultaneous Heat Transfer Mechanisms}
+
+Although there are three fundamental mechanisms of heat transfer --- \textbf{conduction},
+\textbf{convection}, and \textbf{radiation} --- not all three occur simultaneously in every medium.
+Depending on the material and environment, one or two modes may dominate.
+\begin{center}
+\textbf{Summary of Heat Transfer Modes by Medium}
+\end{center}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{0.22\textwidth}|p{0.7\textwidth}|}
+\hline
+\textbf{Medium} & \textbf{Dominant Mechanisms of Heat Transfer} \\ \hline
+\textbf{Opaque Solid} &
+Heat transfer occurs by \textbf{conduction only} within the solid since radiation cannot penetrate
+deeply. The surface may also exchange heat by convection and radiation with its surroundings. \\ \hline
+\textbf{Semitransparent Solid} &
+Both \textbf{conduction and radiation} occur inside the material (e.g., glass, some ceramics). \\ \hline
+\textbf{Still Fluid (no motion)} &
+Heat transfer occurs by \textbf{conduction} and possibly \textbf{radiation}. \\ \hline
+\textbf{Flowing Fluid} &
+Heat transfer occurs by \textbf{convection} (combined conduction + bulk fluid motion)
+and \textbf{radiation}. \\ \hline
+\textbf{Vacuum} &
+Only \textbf{radiation} can occur since conduction and convection require a material medium. \\ \hline
+\end{tabular}
+\end{table}
+
+\paragraph{Examples:}
+\begin{itemize}[nosep]
+    \item A cold rock in warm air gains heat at its surface by \textbf{convection} (air) and
+    \textbf{radiation} (from surroundings), and transfers it inward by \textbf{conduction}.
+    \item Inside a gas, heat transfer is either by \textbf{conduction} (no motion) or
+    \textbf{convection} (with bulk motion) — not both.
+    \item Gases are mostly \textbf{transparent to radiation}, except certain gases like ozone,
+    which absorb specific wavelengths (e.g., ultraviolet).
+    \item Liquids are typically \textbf{strong absorbers} of radiation.
+\end{itemize}
+
+\paragraph{Key Takeaways:}
+\begin{itemize}[nosep]
+    \item Conduction dominates in solids; convection dominates in fluids.
+    \item Radiation becomes significant when temperature differences are large
+    or when a vacuum is present.
+    \item In most systems, two modes act together (e.g., convection + radiation from a hot surface).
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[c]{0.18\textwidth}
+        \centering
+        \fbox{%
+            \includegraphics[width=\linewidth]{images/chap16_page15.png}%
+        }
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[c]{0.75\textwidth}
+        \captionof{figure}{Typical combinations of heat transfer modes in solids, fluids, and vacuum.}
+        \label{fig:chap16-simultaneous}
+    \end{minipage}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Chapter 17: Steady Heat Conduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{17.1 Steady Heat Conduction in Plane Walls}
+
+We analyze one-dimensional, steady conduction in a plane wall of thickness $L$, with
+no heat generation, and constant properties.
+
+Assumptions:
+\begin{itemize}[nosep]
+    \item Steady state ($\partial T / \partial t = 0$).
+    \item One-dimensional conduction in the $x$-direction.
+    \item No internal heat generation.
+    \item Constant thermal conductivity $k$.
+\end{itemize}
+
+\subsubsection*{Temperature distribution}
+
+The governing differential equation for 1-D steady conduction without heat generation is
+
+\begin{equation}
+    \frac{d^2 T}{dx^2} = 0
+    \label{eq:wall-governing}
+\end{equation}
+
+Integrating twice:
+\[
+    T(x) = C_1 x + C_2
+\]
+Constants are found from boundary conditions:
+\[
+    T(0) = T_1, \quad T(L) = T_2
+\]
+which yields a linear temperature distribution
+
+\begin{equation}
+    T(x) = T_1 + (T_2 - T_1)\frac{x}{L}
+    \label{eq:temp-plane-wall}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $T(x)$ = temperature at position $x$ in the wall (\si{\kelvin})
+    \item $T_1$ = temperature at $x=0$ (\si{\kelvin})
+    \item $T_2$ = temperature at $x=L$ (\si{\kelvin})
+    \item $L$ = wall thickness (\si{\meter})
+\end{itemize}
+
+\textbf{Purpose:} Eq.~\eqref{eq:temp-plane-wall} gives the steady-state temperature
+profile through a plane wall under these conditions.
+
+\subsubsection*{Heat transfer rate and thermal resistance of a plane layer}
+
+Using Fourier’s law, for steady state the heat transfer rate is constant:
+
+\begin{equation}
+    \dot{Q} = k A \frac{T_1 - T_2}{L}
+    \label{eq:plane-wall-Q}
+\end{equation}
+
+This can be written in a \textbf{resistance form}:
+
+\begin{equation}
+    \dot{Q} = \frac{T_1 - T_2}{R_{\text{cond}}}
+    \quad\text{with}\quad
+    R_{\text{cond}} = \frac{L}{k A}
+    \label{eq:plane-wall-resistance}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $R_{\text{cond}}$ = thermal resistance of the wall layer (\si{\kelvin\per\watt})
+\end{itemize}
+
+\textbf{Purpose:} This form is analogous to electrical circuits and allows us to build
+thermal resistance networks.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{17.2 Convection Resistance and Basic Thermal Resistance Network}
+
+For convection at a surface of area $A_s$, Newton’s law of cooling can be written as
+
+\begin{equation}
+    \dot{Q} = h A_s (T_s - T_\infty)
+    = \frac{T_s - T_\infty}{R_{\text{conv}}}
+    \quad\text{with}\quad
+    R_{\text{conv}} = \frac{1}{h A_s}
+    \label{eq:conv-resistance}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $R_{\text{conv}}$ = convection thermal resistance (\si{\kelvin\per\watt})
+    \item $T_s$ = surface temperature (\si{\kelvin})
+    \item $T_\infty$ = fluid temperature far from surface (\si{\kelvin})
+\end{itemize}
+
+\textbf{Purpose:} Convection is modeled as a surface resistance, analogous to conduction
+resistance, enabling combined conduction--convection networks.
+
+\subsubsection*{Wall between two fluids: series resistances}
+
+For a plane wall of thickness $L$ separating two fluids at temperatures $T_{\infty 1}$ and $T_{\infty 2}$:
+
+\begin{itemize}[nosep]
+    \item Convection from hot fluid to surface 1: $R_{\text{conv},1} = 1 / (h_1 A)$
+    \item Conduction through the wall: $R_{\text{cond}} = L / (k A)$
+    \item Convection from surface 2 to cold fluid: $R_{\text{conv},2} = 1 / (h_2 A)$
+\end{itemize}
+
+Total resistance (in series) is
+
+\begin{equation}
+    R_{\text{total}} = R_{\text{conv},1} + R_{\text{cond}} + R_{\text{conv},2}
+    \label{eq:series-resistance}
+\end{equation}
+
+and
+\begin{equation}
+    \dot{Q} = \frac{T_{\infty 1} - T_{\infty 2}}{R_{\text{total}}}
+    \label{eq:Q-series}
+\end{equation}
+
+\textbf{Purpose:} Eqs.~\eqref{eq:series-resistance} and \eqref{eq:Q-series} provide a compact
+way to compute the heat transfer rate through composite plane systems.
+
+\subsubsection*{Radiation resistance and combined convection--radiation}
+
+A surface exposed to a gas usually exchanges heat by both \textbf{convection} and \textbf{thermal radiation}.
+
+Net radiation heat transfer between a surface (area $A_s$, temperature $T_s$) and large surroundings at $T_{\text{surr}}$ can be written as
+
+\begin{equation}
+    \dot{Q}_{\text{rad}} = \varepsilon \sigma A_s \bigl( T_s^4 - T_{\text{surr}}^4 \bigr)
+    = h_{\text{rad}} A_s (T_s - T_{\text{surr}})
+    = \frac{T_s - T_{\text{surr}}}{R_{\text{rad}}}
+    \label{eq:rad-resistance}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $\varepsilon$ = surface emissivity (dimensionless),
+    \item $\sigma$ = Stefan--Boltzmann constant ($5.67\times 10^{-8}\,\si{\watt\per\meter\squared\per\kelvin\tothe4}$),
+    \item $h_{\text{rad}}$ = \emph{radiation} heat transfer coefficient (\si{\watt\per\meter\squared\per\kelvin}),
+    \item $R_{\text{rad}} = 1/(h_{\text{rad}} A_s)$ = radiation resistance.
+\end{itemize}
+
+An effective radiation coefficient is defined by linearizing:
+
+\begin{equation}
+    h_{\text{rad}} = \varepsilon \sigma \bigl( T_s^2 + T_{\text{surr}}^2 \bigr)(T_s + T_{\text{surr}})
+    \label{eq:hrad-def}
+\end{equation}
+
+When the surrounding air and surfaces are at about the same temperature, $T_{\text{surr}} \approx T_\infty$, radiation and convection from the same surface may be lumped into a \textbf{combined coefficient}:
+
+\begin{equation}
+    h_{\text{combined}} = h_{\text{conv}} + h_{\text{rad}}
+    \quad\Rightarrow\quad
+    \dot{Q} = h_{\text{combined}} A_s (T_s - T_\infty)
+    \label{eq:h-combined}
+\end{equation}
+
+\textbf{Purpose:} This lets us treat convection + radiation as a single surface resistance,
+\[
+    R_{\text{surf,combined}} = \frac{1}{h_{\text{combined}} A_s},
+\]
+so the resistance network stays simple (only ``convection-like'' nodes).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/thermalcontactconductance.png}
+    \caption{Plane wall conduction and temperature profile (Chapter 17).}
+    \label{fig:chap17-plane}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{17.3 Composite Walls and Generalized Resistance Networks}
+
+For multiple layers in series (each with thickness $L_i$, conductivity $k_i$, and area $A$):
+
+\begin{equation}
+    R_{\text{cond,total}} = \sum_{i} \frac{L_i}{k_i A}
+    \label{eq:composite-wall-R}
+\end{equation}
+
+Total resistance for a system with convection on both sides becomes:
+
+\begin{equation}
+    R_{\text{total}} =
+    \frac{1}{h_1 A}
+    + \sum_i \frac{L_i}{k_i A}
+    + \frac{1}{h_2 A}
+    \label{eq:composite-total-R}
+\end{equation}
+
+and the steady heat transfer rate is
+
+\begin{equation}
+    \dot{Q} = \frac{T_{\infty 1} - T_{\infty 2}}{R_{\text{total}}}
+    \label{eq:Q-composite}
+\end{equation}
+
+\textbf{Purpose:} These equations generalize the thermal resistance idea to
+multi-layer systems.
+
+More complex systems may have \textbf{parallel thermal paths} (analogous to parallel
+resistors in circuits). For such cases:
+
+\begin{equation}
+    \frac{1}{R_{\text{eq}}} = \sum_j \frac{1}{R_j}
+    \label{eq:parallel-R}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $R_j$ = individual thermal resistances for each parallel path,
+    \item $R_{\text{eq}}$ = equivalent resistance seen between the same two nodes.
+\end{itemize}
+
+\textbf{Purpose:} Parallel networks are used when heat can flow through more than one
+path simultaneously (e.g.\ through a stud and insulation in a wall).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{17.4 Thermal Contact Resistance}
+
+At the interface between two solids, microscopic roughness leads to actual
+contact only at small spots, with thin gaps filled with air or other fluid.
+This causes an additional \textbf{thermal contact resistance} between the solids.
+
+The heat transfer across the interface can be expressed as
+
+\begin{equation}
+    \dot{Q} = h_c A (T_{s1} - T_{s2})
+    = \frac{T_{s1} - T_{s2}}{R_c}
+    \quad\text{with}\quad
+    R_c = \frac{1}{h_c A}
+    \label{eq:contact-resistance}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $h_c$ = thermal contact conductance (\si{\watt\per\meter\squared\per\kelvin})
+    \item $A$ = apparent contact area (\si{\meter\squared})
+    \item $T_{s1}$, $T_{s2}$ = temperatures of the two solid surfaces at the interface (\si{\kelvin})
+    \item $R_c$ = thermal contact resistance (\si{\kelvin\per\watt})
+\end{itemize}
+
+\textbf{Purpose:} Eq.~\eqref{eq:contact-resistance} allows us to model the imperfect
+heat transfer at solid--solid interfaces as an extra resistance in series.
+
+Thermal contact resistance depends on:
+\begin{itemize}[nosep]
+    \item Contact pressure,
+    \item Surface roughness and hardness,
+    \item Interstitial material (air, grease, filler, etc.).
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{17.5 Heat Conduction in Cylinders and Spheres}
+
+For cylindrical or spherical geometries with radial conduction, the area normal to
+heat flow varies with radius, so the thermal resistance takes a different form.
+
+\subsubsection*{Radial conduction in a cylinder}
+
+For a hollow cylinder with inner radius $r_1$, outer radius $r_2$, length $L$,
+and constant conductivity $k$, under 1-D steady radial conduction and no heat generation:
+
+\begin{equation}
+    \dot{Q} = \frac{2\pi k L (T_1 - T_2)}{\ln(r_2 / r_1)}
+    \label{eq:cylinder-Q}
+\end{equation}
+
+\textbf{Where:}
+\begin{itemize}[nosep]
+    \item $T_1$ = temperature at $r = r_1$ (\si{\kelvin})
+    \item $T_2$ = temperature at $r = r_2$ (\si{\kelvin})
+    \item $r_1$, $r_2$ = inner and outer radii (\si{\meter})
+    \item $L$ = cylinder length (\si{\meter})
+\end{itemize}
+
+The associated \textbf{cylindrical conduction resistance} is
+
+\begin{equation}
+    R_{\text{cond,cyl}} = \frac{\ln(r_2 / r_1)}{2\pi k L}
+    \label{eq:cylinder-R}
+\end{equation}
+
+\textbf{Purpose:} These expressions are used for pipes, insulation on pipes, and
+other cylindrical geometries.
+
+Similar expressions exist for spherical shells, with different area dependence,
+but the same idea: conduction resistance depends on geometry.
+
+\subsubsection*{Cylinders and spheres with convection on both sides}
+
+For a \textbf{cylindrical shell} with inner radius $r_1$, outer radius $r_2$, length $L$, conductivity $k$, convection on the inner and outer surfaces with $h_1$, $h_2$, and bulk fluid temperatures $T_{\infty 1}$, $T_{\infty 2}$:
+
+\begin{align}
+    R_{\text{conv},1} &= \frac{1}{h_1 A_1} = \frac{1}{h_1 (2\pi r_1 L)} \\
+    R_{\text{cond,cyl}} &= \frac{\ln(r_2 / r_1)}{2\pi k L} \\
+    R_{\text{conv},2} &= \frac{1}{h_2 A_2} = \frac{1}{h_2 (2\pi r_2 L)}
+\end{align}
+
+Total resistance and heat transfer rate:
+
+\begin{equation}
+    R_{\text{total,cyl}} =
+    R_{\text{conv},1} + R_{\text{cond,cyl}} + R_{\text{conv},2}
+    \label{eq:cyl-total-R}
+\end{equation}
+
+\begin{equation}
+    \dot{Q} =
+    \frac{T_{\infty 1} - T_{\infty 2}}{R_{\text{total,cyl}}}
+    \label{eq:cyl-total-Q}
+\end{equation}
+
+For a \textbf{spherical shell} with radii $r_1$, $r_2$:
+
+\begin{align}
+    A_1 &= 4\pi r_1^2, \quad A_2 = 4\pi r_2^2 \\
+    R_{\text{cond,sph}} &= \frac{r_2 - r_1}{4\pi k r_1 r_2}
+\end{align}
+
+\begin{equation}
+    R_{\text{total,sph}} =
+    \frac{1}{h_1 A_1} + R_{\text{cond,sph}} + \frac{1}{h_2 A_2}
+    \label{eq:sph-total-R}
+\end{equation}
+
+\begin{equation}
+    \dot{Q} =
+    \frac{T_{\infty 1} - T_{\infty 2}}{R_{\text{total,sph}}}
+    \label{eq:sph-total-Q}
+\end{equation}
+
+Once $\dot{Q}$ is known, any surface or interface temperature $T_j$ is found from
+\[
+    \Delta T_{i\to j} = \dot{Q}\, R_{i\to j}
+\]
+just as in the plane-wall case.
+
+\subsubsection*{Multilayer cylindrical and spherical shells}
+
+For a \textbf{multilayer cylinder} with $n$ concentric layers (conductivities $k_i$, radii $r_i$):
+
+\begin{equation}
+    R_{\text{cond,total,cyl}} =
+    \sum_{i=1}^{n}
+    \frac{\ln(r_{i+1} / r_i)}{2\pi k_i L}
+    \label{eq:multi-cyl-R}
+\end{equation}
+
+Total resistance with convection on both sides:
+
+\begin{equation}
+    R_{\text{total}} =
+    \frac{1}{h_1 2\pi r_1 L}
+    + \sum_{i=1}^{n} \frac{\ln(r_{i+1}/r_i)}{2\pi k_i L}
+    + \frac{1}{h_2 2\pi r_{n+1} L}
+    \label{eq:multi-cyl-Rtotal}
+\end{equation}
+
+An analogous expression holds for \textbf{multilayer spheres}, replacing each cylindrical conduction term with the spherical form
+
+\[
+    R_{\text{cond,sph},i} =
+    \frac{r_{i+1} - r_i}{4\pi k_i r_i r_{i+1}}.
+\]
+
+\textbf{Purpose:} These formulas extend the resistance-network method to pipes with insulation, cladding, or multiple solid layers, and to spherical tanks.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{17.6 Critical Radius of Insulation}
+
+For \textbf{curved} geometries (cylinders, spheres), adding insulation has two competing effects:
+
+\begin{itemize}[nosep]
+    \item Increases conduction resistance (good for reducing heat transfer),
+    \item Increases outer surface area $\to$ decreases convection resistance (could increase heat transfer).
+\end{itemize}
+
+For a cylinder of outer radius $r_1$ covered by insulation of conductivity $k$ up to radius $r_2$, exposed to convection coefficient $h$:
+
+\begin{equation}
+    R_{\text{ins}} = \frac{\ln(r_2 / r_1)}{2\pi k L},
+    \qquad
+    R_{\text{conv}} = \frac{1}{h (2\pi r_2 L)}.
+\end{equation}
+
+Total resistance:
+
+\[
+    R_{\text{total}}(r_2) = R_{\text{ins}} + R_{\text{conv}}.
+\]
+
+Differentiating $\dot{Q} = (T_1 - T_\infty)/R_{\text{total}}$ with respect to $r_2$ and setting $d\dot{Q}/dr_2 = 0$ gives the \textbf{critical radius}.
+
+\subsubsection*{Critical radius for a cylinder}
+
+\begin{equation}
+    r_{\text{cr,cyl}} = \frac{k}{h}
+    \label{eq:rcr-cylinder}
+\end{equation}
+
+\textbf{Interpretation:}
+\begin{itemize}[nosep]
+    \item If $r_2 < r_{\text{cr,cyl}}$: adding insulation \emph{increases} $\dot{Q}$ (heat loss goes up).
+    \item If $r_2 = r_{\text{cr,cyl}}$: $\dot{Q}$ is maximized.
+    \item If $r_2 > r_{\text{cr,cyl}}$: adding insulation behaves as expected and \emph{reduces} $\dot{Q}$.
+\end{itemize}
+
+For typical insulating materials ($k \approx 0.04$--$0.06\,\si{\watt\per\meter\per\kelvin}$) and natural convection in air ($h \gtrsim 5\,\si{\watt\per\meter\squared\per\kelvin}$), $r_{\text{cr,cyl}}$ is on the order of $\sim 1\,\si{\centi\meter}$ or less, so most pipe insulation is safely beyond the critical radius.
+
+\subsubsection*{Critical radius for a sphere}
+
+A similar derivation for a spherical shell yields
+
+\begin{equation}
+    r_{\text{cr,sph}} = \frac{2k}{h}
+    \label{eq:rcr-sphere}
+\end{equation}
+
+\textbf{Purpose:} Critical radius analysis tells us whether adding insulation to small cylinders/spheres (e.g.\ thin wires) might actually \emph{increase} heat transfer (useful for electrical wires where we want better cooling), and assures us that for most practical pipe insulation the usual intuition ``more insulation = less heat loss'' holds.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{17.7 Heat Transfer from Finned Surfaces}
+
+Fins (extended surfaces) increase the area available for convection/radiation and can greatly enhance heat transfer from a base surface at $T_b$ to a fluid at $T_\infty$.
+
+\subsubsection*{Governing differential equation for a fin}
+
+Consider a straight fin of constant cross-section:
+\begin{itemize}[nosep]
+    \item Cross-sectional area $A_c$,
+    \item Perimeter $p$,
+    \item Thermal conductivity $k$,
+    \item Convection coefficient $h$ to surroundings at $T_\infty$,
+    \item Temperature excess $u(x) = T(x) - T_\infty$.
+\end{itemize}
+
+Energy balance on a differential element gives the \textbf{fin equation}:
+
+\begin{equation}
+    \frac{d^2 u}{dx^2} - m^2 u = 0,
+    \qquad
+    m^2 = \frac{h p}{k A_c}
+    \label{eq:fin-ode}
+\end{equation}
+
+General solution:
+\[
+    u(x) = C_1 e^{m x} + C_2 e^{-m x}.
+\]
+Constants are set by boundary conditions at the fin base and tip.
+
+\subsubsection*{Boundary condition at the base}
+
+At $x = 0$ the fin is attached to a wall at known temperature $T_b$:
+\begin{equation}
+    u(0) = u_b = T_b - T_\infty
+    \label{eq:fin-bc-base}
+\end{equation}
+
+\subsubsection*{Common fin-tip conditions and solutions}
+
+\paragraph{1. Infinitely long fin} ($T(L)\to T_\infty$, or $u(L)\to 0$ as $L\to\infty$):
+
+\begin{align}
+    \frac{T(x) - T_\infty}{T_b - T_\infty} &= e^{-m x}
+    \label{eq:fin-long-T} \\
+    \dot{Q}_{\text{long fin}} &= \sqrt{h p k A_c}\,(T_b - T_\infty)
+    \label{eq:fin-long-Q}
+\end{align}
+
+\paragraph{2. Negligible heat loss at tip} (adiabatic tip, $dT/dx|_{x=L} = 0$):
+
+\begin{align}
+    \frac{T(x) - T_\infty}{T_b - T_\infty}
+        &= \frac{\cosh\bigl(m(L - x)\bigr)}{\cosh(mL)}
+        \label{eq:fin-adiabatic-T} \\
+    \dot{Q}_{\text{adiabatic tip}}
+        &= \sqrt{h p k A_c}\,(T_b - T_\infty)\,\tanh(mL)
+        \label{eq:fin-adiabatic-Q}
+\end{align}
+
+\paragraph{3. Specified tip temperature} $T(L) = T_L$:
+
+\begin{equation}
+    \frac{T(x) - T_\infty}{T_b - T_\infty}
+    = \frac{\displaystyle
+    \frac{T_L - T_\infty}{T_b - T_\infty} \sinh(m x)
+    + \sinh\bigl(m(L - x)\bigr)}
+    {\sinh(mL)}
+    \label{eq:fin-specified-T}
+\end{equation}
+
+\paragraph{4. Convection at tip} (with same $h$):
+
+Tip condition from energy balance:
+\[
+    -k A_c \frac{dT}{dx}\bigg|_{x=L}
+    = h A_c \bigl(T(L) - T_\infty\bigr).
+\]
+
+Solution for temperature distribution:
+
+\begin{equation}
+    \frac{T(x) - T_\infty}{T_b - T_\infty}
+    =
+    \frac{
+        \cosh\bigl(m(L - x)\bigr)
+        + \frac{h}{m k} \sinh\bigl(m(L - x)\bigr)
+    }{
+        \cosh(mL) + \frac{h}{m k} \sinh(mL)
+    }
+    \label{eq:fin-conv-T}
+\end{equation}
+
+Corresponding heat transfer rate:
+
+\begin{equation}
+    \dot{Q}_{\text{conv tip}} =
+    \sqrt{h p k A_c}\,(T_b - T_\infty)\,
+    \frac{\sinh(mL) + \frac{h}{m k}\cosh(mL)}
+         {\cosh(mL) + \frac{h}{m k}\sinh(mL)}
+    \label{eq:fin-conv-Q}
+\end{equation}
+
+\subsubsection*{Corrected fin length}
+
+In practice, fins with convection at the tip are often approximated as \emph{adiabatic-tip} fins by using a \textbf{corrected length} $L_c$:
+
+\begin{equation}
+    L_c = L + \frac{A_c}{p}
+    \label{eq:Lc-general}
+\end{equation}
+
+Common cases:
+\begin{align}
+    &\text{Rectangular fin (thickness $t$)}: \quad L_c = L + \frac{t}{2} \\
+    &\text{Cylindrical pin fin (diameter $D$)}: \quad L_c = L + \frac{D}{4}
+\end{align}
+
+Then use the adiabatic-tip formulas \eqref{eq:fin-adiabatic-T}--\eqref{eq:fin-adiabatic-Q} with $L$ replaced by $L_c$.
+
+\textbf{Purpose:} Simplifies analysis while giving accurate results when $mL \gtrsim 1$.
+
+\subsubsection*{Fin efficiency}
+
+Define the \emph{fin efficiency} $\eta_{\text{fin}}$ as
+
+\begin{equation}
+    \eta_{\text{fin}} =
+    \frac{\dot{Q}_{\text{fin}}}{\dot{Q}_{\text{fin,max}}}
+    =
+    \frac{\text{actual heat transfer from fin}}
+         {h A_{\text{fin}} (T_b - T_\infty)}
+    \label{eq:eta-fin-def}
+\end{equation}
+
+For a straight fin of constant cross section:
+
+\begin{itemize}[nosep]
+    \item \textbf{Very long fin:}
+    \begin{equation}
+        \eta_{\text{long}} =
+        \frac{1}{mL}
+        \label{eq:eta-long}
+    \end{equation}
+
+    \item \textbf{Adiabatic-tip fin (or convective tip with corrected $L_c$):}
+    \begin{equation}
+        \eta_{\text{adiabatic}} =
+        \frac{\tanh(mL)}{mL}
+        \label{eq:eta-adiabatic}
+    \end{equation}
+\end{itemize}
+
+Fin heat transfer in terms of efficiency:
+
+\begin{equation}
+    \dot{Q}_{\text{fin}} =
+    \eta_{\text{fin}}\, h A_{\text{fin}} (T_b - T_\infty)
+    \label{eq:Q-fin-eta}
+\end{equation}
+
+\textbf{Rule of thumb:} fins with $\eta_{\text{fin}} \lesssim 0.6$ are usually not economical (too long / too much material for little extra heat transfer).
+
+\subsubsection*{Fin effectiveness}
+
+\textbf{Fin effectiveness} measures how worthwhile it is to add the fin compared to leaving just the base area $A_b$ exposed:
+
+\begin{equation}
+    \varepsilon_{\text{fin}} =
+    \frac{\dot{Q}_{\text{fin}}}{\dot{Q}_{\text{no fin}}}
+    = \frac{\dot{Q}_{\text{fin}}}{h A_b (T_b - T_\infty)}
+    = \frac{A_{\text{fin}}}{A_b}\,\eta_{\text{fin}}
+    \label{eq:fin-effectiveness}
+\end{equation}
+
+Interpretation:
+\begin{itemize}[nosep]
+    \item $\varepsilon_{\text{fin}} < 1$: fin acts like \emph{insulation} (bad design).
+    \item $\varepsilon_{\text{fin}} \approx 1$: fin pointless (little benefit).
+    \item $\varepsilon_{\text{fin}} \gg 1$: fin significantly enhances heat transfer (desirable).
+\end{itemize}
+
+\textbf{Design implications:}
+\begin{itemize}[nosep]
+    \item Want high $k$ (good conductor: aluminum, copper),
+    \item Want large $p/A_c$ (thin, slender fins),
+    \item Fins are most effective at low $h$ (gases, natural convection) and on the gas side of heat exchangers.
+\end{itemize}
+
+\subsubsection*{Overall effectiveness of a finned surface}
+
+For a surface with unfinned area $A_{\text{unfin}}$ and total fin area $A_{\text{fin}}$ (sum of all fins), and base temperature $T_b$:
+
+\begin{align}
+    \dot{Q}_{\text{total, finned}}
+        &= h A_{\text{unfin}} (T_b - T_\infty)
+        + \eta_{\text{fin}} h A_{\text{fin}} (T_b - T_\infty) \\
+        &= h (A_{\text{unfin}} + \eta_{\text{fin}} A_{\text{fin}})(T_b - T_\infty)
+        \label{eq:Q-total-finned}
+\end{align}
+
+If the same geometric area with no fins is $A_{\text{no fin}}$, define \textbf{overall surface effectiveness}:
+
+\begin{equation}
+    \varepsilon_{\text{overall}} =
+    \frac{\dot{Q}_{\text{total, finned}}}{\dot{Q}_{\text{total, no fin}}}
+    =
+    \frac{A_{\text{unfin}} + \eta_{\text{fin}} A_{\text{fin}}}{A_{\text{no fin}}}
+    \label{eq:overall-effectiveness}
+\end{equation}
+
+This accounts for both the individual fin performance and how many fins are packed onto the surface.
+
+\subsubsection*{Thermal resistance of a heat sink}
+
+Commercial heat sinks (for electronics) are often characterized by an overall thermal resistance between the \emph{base} (temperature $T_b$) and ambient ($T_\infty$):
+
+\begin{equation}
+    R_{\text{hs}} = \frac{T_b - T_\infty}{\dot{Q}_{\text{hs}}}
+    \quad[\si{\kelvin\per\watt}]
+    \label{eq:R-heat-sink}
+\end{equation}
+
+\textbf{Purpose:} This single number captures the combined effect of fin geometry, material, and natural/forced convection, and is used directly to check whether a heat sink keeps an electronic component below its maximum safe temperature.
+
+%===========================
+% Chapter 18 – Transient Conduction
+%===========================
+
+\section{Chapter 18: Transient Heat Conduction}
+
+\subsection{18.1 Transient Heat Conduction \& Lumped System Analysis}
+
+In transient (unsteady) conduction, the temperature depends on both position and time:
+\[
+T = T(x,y,z,t).
+\]
+We are usually interested in how a solid heats up or cools down when its surroundings change suddenly (step change in $T_\infty$ or $h$).
+
+\subsubsection*{Energy balance for a solid}
+
+For a solid of volume $V$ and surface area $A_s$, with uniform temperature $T(t)$ (no internal generation), exchanging heat with a fluid at $T_\infty$ by convection:
+\[
+\dot{Q}_{\text{conv}} = h A_s \left[T(t) - T_\infty\right],
+\]
+and the rate of change of internal energy is
+\[
+\dot{E}_{\text{stored}} = \rho V c_p \,\frac{\mathrm{d}T}{\mathrm{d}t}.
+\]
+
+Energy conservation (cooling case, $T > T_\infty$):
+\[
+-\dot{Q}_{\text{conv}} = \dot{E}_{\text{stored}}
+\quad\Rightarrow\quad
+- h A_s \left[T(t) - T_\infty\right] = \rho V c_p\,\frac{\mathrm{d}T}{\mathrm{d}t}.
+\]
+
+This first-order ODE has the solution
+\[
+T(t) - T_\infty = \left(T_i - T_\infty\right)\exp\!\left(-\frac{hA_s}{\rho V c_p}t\right),
+\]
+or in dimensionless form
+\[
+\theta(t) \equiv \frac{T(t)-T_\infty}{T_i - T_\infty}
+    = \exp\!\left(-\frac{hA_s}{\rho V c_p}t\right).
+\]
+
+\paragraph{Variables.}
+\begin{itemize}
+  \item $T(t)$: uniform temperature of the solid at time $t$.
+  \item $T_\infty$: ambient (free-stream) fluid temperature.
+  \item $T_i$: initial temperature of the solid at $t = 0$.
+  \item $h$: convection heat transfer coefficient.
+  \item $A_s$: surface area of the solid.
+  \item $\rho$: density of the solid.
+  \item $c_p$: specific heat of the solid.
+\end{itemize}
+
+\subsubsection*{Characteristic length, Biot number, Fourier number}
+
+For conduction problems we define a characteristic length
+\[
+L_c = \frac{V}{A_s},
+\]
+and the \textbf{thermal diffusivity}
+\[
+\alpha = \frac{k}{\rho c_p}.
+\]
+
+Two important dimensionless groups:
+
+\[
+\mathrm{Bi} = \frac{h L_c}{k}
+\quad\text{(Biot number)}
+\]
+
+\[
+\mathrm{Fo} = \frac{\alpha t}{L_c^2}
+\quad\text{(Fourier number)}.
+\]
+
+\paragraph{Physical meaning.}
+\begin{itemize}
+  \item $\mathrm{Bi}$ compares \emph{internal conduction resistance} in the solid to \emph{external convection resistance}. 
+        \begin{itemize}
+          \item $\mathrm{Bi} \ll 1$ (typically $\mathrm{Bi} \le 0.1$): conduction inside is very fast compared to convection; the solid tends to remain nearly uniform in temperature (lumped system is valid).
+          \item $\mathrm{Bi} \gtrsim 0.1$: significant temperature gradients inside the solid; lumped analysis is no longer accurate.
+        \end{itemize}
+  \item $\mathrm{Fo}$ measures \emph{how long} heat has had to diffuse relative to the size of the object. Larger $\mathrm{Fo}$ means more time for temperature to “even out”.
+\end{itemize}
+
+\subsubsection*{Lumped-system solution in dimensionless form}
+
+Using $L_c = V/A_s$ and $\alpha = k/(\rho c_p)$, the lumped solution can be written as
+\[
+\theta(t) = \frac{T(t)-T_\infty}{T_i - T_\infty}
+           = \exp\!\left(-\mathrm{Bi}\,\mathrm{Fo}\right),
+\]
+with
+\[
+\mathrm{Bi} = \frac{h L_c}{k}, 
+\qquad
+\mathrm{Fo} = \frac{\alpha t}{L_c^2}.
+\]
+
+\paragraph{When is lumped analysis valid?}
+\begin{itemize}
+  \item Compute $\mathrm{Bi} = h L_c / k$ using the \emph{solid}'s properties and characteristic length.
+  \item If $\mathrm{Bi} \le 0.1$, the lumped model is usually acceptable.
+  \item If $\mathrm{Bi} > 0.1$, internal gradients are important and a non-lumped (spatially varying) solution is needed.
+\end{itemize}
+
+
+\subsection{18.2 One- and Multi-Dimensional Non-Lumped Transient Conduction}
+
+When $\mathrm{Bi}$ is not small, temperature varies inside the solid. The governing equation (no generation) for 1-D transient conduction in a plane wall is
+\[
+\frac{\partial^2 T}{\partial x^2}
+  = \frac{1}{\alpha}\,\frac{\partial T}{\partial t},
+\]
+with appropriate boundary and initial conditions (e.g.\ symmetry at the center, convection at the surface, and uniform initial temperature).
+
+\subsubsection*{Non-dimensional formulation (plane wall example)}
+
+Define
+\[
+X = \frac{x}{L}, 
+\qquad
+u(X,t) = \frac{T(x,t)-T_\infty}{T_i - T_\infty},
+\qquad
+t = \mathrm{Fo} = \frac{\alpha t_{\text{phys}}}{L^2}.
+\]
+
+Then the 1-D transient conduction problem in a plane wall can be written in dimensionless form as
+\begin{align*}
+\frac{\partial^2 u}{\partial X^2} &= \frac{\partial u}{\partial t}, \\
+\left.\frac{\partial u}{\partial X}\right|_{X=0} &= 0, \\
+\left.\frac{\partial u}{\partial X}\right|_{X=1} &= -\mathrm{Bi}\,u(1,t), \\
+u(X,0) &= 1.
+\end{align*}
+
+The solution for $u(X,t)$ is an infinite series involving eigenvalues that depend on $\mathrm{Bi}$. In practice, we usually:
+\begin{itemize}
+  \item Use \textbf{Heisler charts} or tables for $u(X,t)$ as a function of $X$, $\mathrm{Bi}$, and $\mathrm{Fo}$.
+  \item Or use a \textbf{one-term approximation} (first term of the series) once time is not too small, e.g.\ for $\mathrm{Fo} \gtrsim 0.2$.
+\end{itemize}
+
+\paragraph{General form of the 1-D solution.}
+For a plane wall with convection at the surface, the dimensionless temperature often has the form
+\[
+u(X,t) \approx A_1 \exp\!\left(-\lambda_1^2 t\right)\,\phi_1(X),
+\]
+where $\lambda_1$ and $A_1$ depend on $\mathrm{Bi}$ (tabulated), and $\phi_1(X)$ is a spatial eigenfunction (e.g.\ cosine or Bessel function depending on geometry).
+
+Similar formulations exist for:
+\begin{itemize}
+  \item \textbf{Long cylinder}: conduction in $r$ only.
+  \item \textbf{Sphere}: conduction in $r$ only.
+\end{itemize}
+
+\subsubsection*{Multidimensional problems and product solution}
+
+Near corners and edges, heat can flow in more than one direction (e.g.\ $x$ and $y$). For some geometries (rectangular plates, etc.) with simple boundary conditions, the \textbf{product solution} approach can be used:
+\[
+u(x,y,t) = u_x(x,t)\,u_y(y,t),
+\]
+or more generally as a sum of such products. Each factor satisfies a 1-D transient conduction problem in its coordinate direction.
+
+Key ideas:
+\begin{itemize}
+  \item Multidimensional solutions are built from 1-D eigenfunctions in each coordinate direction.
+  \item In practice, engineers often use charts/tables or numerical methods (software) for true 2-D/3-D transients.
+\end{itemize}
+
+
+\subsection{18.3 Semi-Infinite Body}
+
+A \textbf{semi-infinite medium} occupies $x \ge 0$ and is so large that the disturbance at the surface never reaches the “far” end (we treat it as infinite).
+
+Typical setup:
+\begin{itemize}
+  \item Initial condition: $T(x,0) = T_i$ for $x \ge 0$.
+  \item Boundary condition at the surface: $T(0,t) = T_s$ (sudden change) or convection at $x=0$.
+  \item As $x \to \infty$: $T(x,t) \to T_i$.
+\end{itemize}
+
+\subsubsection*{Similarity variable}
+
+For the constant surface-temperature case, we introduce the \textbf{similarity variable}
+\[
+\eta = \frac{x}{2\sqrt{\alpha t}},
+\]
+which collapses $x$ and $t$ into a single variable. The dimensionless temperature
+\[
+\theta(x,t) = \frac{T(x,t) - T_s}{T_i - T_s}
+\]
+depends only on $\eta$, not on $x$ and $t$ separately:
+\[
+\theta = \theta(\eta).
+\]
+
+The analytical solution is expressed in terms of the (Gaussian) \textbf{error function}:
+\[
+\theta(\eta) = \operatorname{erf}(\eta)
+\quad\Rightarrow\quad
+\frac{T(x,t)-T_s}{T_i - T_s} = \operatorname{erf}\!\left(\frac{x}{2\sqrt{\alpha t}}\right).
+\]
+
+\paragraph{Physical interpretation.}
+\begin{itemize}
+  \item For small $t$, only a thin layer near the surface has responded to the temperature change.
+  \item The \textbf{thermal penetration depth} grows roughly like
+        \[
+        \delta \sim \mathcal{O}\big(\sqrt{\alpha t}\big).
+        \]
+  \item For $x \gg \sqrt{\alpha t}$, the temperature is still essentially $T_i$.
+\end{itemize}
+
+
+%===========================
+% Chapter 19 – Forced Convection
+%===========================
+
+\section{Chapter 19: Forced Convection and Boundary Layers}
+
+\subsection{19.1 Forced Convection and the Velocity Boundary Layer}
+
+\textbf{Forced convection} occurs when fluid motion is driven by a fan, pump, blower, or external flow (e.g.\ air flowing over a plate). The convective heat transfer rate is given by Newton’s law of cooling:
+\[
+\dot{Q} = h A_s (T_s - T_\infty).
+\]
+
+When a fluid flows over a solid surface:
+\begin{itemize}
+  \item At the surface: due to the no-slip condition, $u = 0$.
+  \item Away from the surface: $u \to U_\infty$ (free-stream velocity).
+\end{itemize}
+The region where the velocity changes from $0$ to $U_\infty$ is the \textbf{velocity boundary layer}.
+
+\paragraph{Velocity boundary layer thickness.}
+The \textbf{boundary layer thickness} $\delta(x)$ is typically defined where $u \approx 0.99\,U_\infty$. It:
+\begin{itemize}
+  \item Starts at zero at the leading edge ($x=0$).
+  \item Grows downstream as the fluid is slowed by viscous effects.
+  \item Is thinner in high-speed or low-viscosity flows (large Reynolds number).
+\end{itemize}
+
+
+\subsection{19.2 Thermal Boundary Layer}
+
+Similarly, there is a \textbf{thermal boundary layer}, where the fluid temperature changes from $T_s$ at the surface toward $T_\infty$ in the free stream.
+
+\begin{itemize}
+  \item The thickness of the thermal boundary layer is denoted $\delta_t(x)$.
+  \item The relative thicknesses of $\delta_t$ and $\delta$ depend on the \textbf{Prandtl number}.
+\end{itemize}
+
+\paragraph{Prandtl number.}
+\[
+\mathrm{Pr} = \frac{\nu}{\alpha} = \frac{\mu c_p}{k},
+\]
+where $\nu$ is kinematic viscosity and $\alpha$ is thermal diffusivity.
+
+\begin{itemize}
+  \item $\mathrm{Pr} \ll 1$ (liquid metals): thermal diffusion is very fast; $\delta_t$ is \emph{thicker} than the velocity boundary layer.
+  \item $\mathrm{Pr} \gg 1$ (oils): thermal diffusion is slow; $\delta_t$ is \emph{thinner} than the velocity boundary layer.
+  \item $\mathrm{Pr} \approx 1$ (many gases, water at some conditions): $\delta_t$ and $\delta$ are of similar thickness.
+\end{itemize}
+
+
+\subsection{19.3 Reynolds, Prandtl, and Nusselt Numbers}
+
+\paragraph{Reynolds number (external flow over flat plate).}
+For a position $x$ from the leading edge:
+\[
+\mathrm{Re}_x = \frac{\rho U_\infty x}{\mu} = \frac{U_\infty x}{\nu}.
+\]
+
+\begin{itemize}
+  \item Small $\mathrm{Re}_x$: viscous forces dominate, flow is laminar.
+  \item Large $\mathrm{Re}_x$: inertial forces dominate, flow becomes turbulent.
+  \item For a flat plate, transition typically begins around $\mathrm{Re}_x \sim 10^5$ and is often taken as fully turbulent after $\mathrm{Re}_x \sim 3\times10^6$. A commonly used \emph{engineering} critical value is
+        \[
+        \mathrm{Re}_{\text{cr}} \approx 5\times 10^5.
+        \]
+\end{itemize}
+
+\paragraph{Prandtl number (again).}
+As above,
+\[
+\mathrm{Pr} = \frac{\nu}{\alpha} = \frac{\mu c_p}{k}.
+\]
+It compares momentum and thermal diffusivities and controls the relative thickness of velocity and thermal boundary layers.
+
+\paragraph{Nusselt number.}
+The \textbf{Nusselt number} is a dimensionless heat transfer coefficient:
+\[
+\mathrm{Nu} = \frac{h L_c}{k}.
+\]
+For local values over a flat plate we use
+\[
+\mathrm{Nu}_x = \frac{h_x x}{k},
+\]
+and for average over a plate of length $L$,
+\[
+\mathrm{Nu}_L = \frac{h_L L}{k}.
+\]
+
+Physical meaning:
+\begin{itemize}
+  \item $\mathrm{Nu}$ measures the enhancement of heat transfer by convection relative to pure conduction across the same distance.
+  \item Larger $\mathrm{Nu}$ means stronger convective transport and a larger $h$.
+\end{itemize}
+
+
+\subsection{19.4 Flow over Flat Plates, Cylinders, and Spheres}
+
+\subsubsection*{Flow over a flat plate (isothermal surface)}
+
+For a flat plate at uniform surface temperature $T_s$ in a fluid at $T_\infty$, with free-stream velocity $U_\infty$:
+
+\paragraph{Local Nusselt number (laminar).}
+\[
+\mathrm{Nu}_x = \frac{h_x x}{k}
+  = 0.332\,\mathrm{Re}_x^{1/2}\,\mathrm{Pr}^{1/3},
+\quad
+\mathrm{Pr} > 0.6,\;
+\mathrm{Re}_x < 5\times 10^5.
+\]
+
+\paragraph{Local Nusselt number (turbulent).}
+\[
+\mathrm{Nu}_x = 0.0296\,\mathrm{Re}_x^{0.8}\,\mathrm{Pr}^{1/3},
+\quad
+0.6 \le \mathrm{Pr} \le 60,\;
+5\times 10^5 \lesssim \mathrm{Re}_x \lesssim 10^7.
+\]
+
+\paragraph{Average Nusselt number over the plate.}
+For a plate of length $L$:
+\[
+\mathrm{Nu}_L = \frac{h_L L}{k}.
+\]
+
+If the flow is laminar over the entire plate:
+\[
+\mathrm{Nu}_L = 0.664\,\mathrm{Re}_L^{1/2}\,\mathrm{Pr}^{1/3},
+\quad
+\mathrm{Re}_L < 5\times 10^5.
+\]
+
+If the flow is turbulent over the entire plate:
+\[
+\mathrm{Nu}_L = 0.037\,\mathrm{Re}_L^{0.8}\,\mathrm{Pr}^{1/3},
+\quad
+0.6 \le \mathrm{Pr} \le 60,\;
+5\times 10^5 \lesssim \mathrm{Re}_L \lesssim 10^7.
+\]
+
+For cases where the flow is laminar near the leading edge and turbulent further downstream, a combined-correlation often used in practice is
+\[
+\mathrm{Nu}_L = \left(0.037\,\mathrm{Re}_L^{0.8} - 871\right)\mathrm{Pr}^{1/3},
+\quad
+0.6 \le \mathrm{Pr} \le 60.
+\]
+
+\subsubsection*{Cross-flow over cylinders and spheres}
+
+For external flow over a cylinder or sphere (diameter $D$), we use $D$ as the characteristic length, so
+\[
+\mathrm{Re} = \frac{\rho U_\infty D}{\mu}, \qquad
+\mathrm{Nu} = \frac{h D}{k}.
+\]
+
+\paragraph{Cylinder (cross-flow).}
+A widely used correlation:
+\[
+\mathrm{Nu}_{\text{cyl}} =
+0.3 + 0.62\,\mathrm{Re}^{1/2}\mathrm{Pr}^{1/3}
+\left[1 + \left(\frac{0.4}{\mathrm{Pr}}\right)^{2/3}\right]^{1/4}
+\left[1 + \left(\frac{\mathrm{Re}}{282{,}000}\right)^{5/8}\right]^{4/5},
+\]
+valid for $\mathrm{Re}\,\mathrm{Pr} \gtrsim 0.2$ (typical external flows).
+
+\paragraph{Sphere (cross-flow).}
+A commonly used correlation:
+\[
+\mathrm{Nu}_{\text{sph}} =
+2 + \left[0.4\,\mathrm{Re}^{1/2} + 0.06\,\mathrm{Re}^{2/3}\right]
+\mathrm{Pr}^{0.4}\left(\frac{\mu_\infty}{\mu_s}\right)^{1/4},
+\]
+for about $3.5 \le \mathrm{Re} \le 8\times 10^4$ and $0.7 \le \mathrm{Pr} \le 380$. Here $\mu_\infty$ is evaluated at the free-stream temperature, and $\mu_s$ at the surface temperature.
+
+\paragraph{How to use these correlations in practice.}
+\begin{enumerate}
+  \item Choose the characteristic length:
+        \begin{itemize}
+          \item Flat plate: $L$ in flow direction (for $\mathrm{Nu}_L$).
+          \item Cylinder or sphere: diameter $D$.
+        \end{itemize}
+  \item Compute $\mathrm{Re}$ and $\mathrm{Pr}$ using fluid properties at the \emph{film temperature} (typically $T_f = (T_s + T_\infty)/2$ for external flow).
+  \item Select the correct regime (laminar / turbulent / combined).
+  \item Compute $\mathrm{Nu}$, then solve for $h$ from
+        \[
+        h = \frac{\mathrm{Nu}\,k}{L_c}.
+        \]
+  \item Finally, compute $\dot{Q} = h A_s (T_s - T_\infty)$ as needed.
+\end{enumerate}
+
+%=========================================
+% Chapter 21 – Thermal Radiation
+%=========================================
+
+\section{Chapter 21: Thermal Radiation}
+
+Thermal radiation is energy emitted by matter due to its temperature, in the form of electromagnetic waves. 
+Unlike conduction and convection, radiation:
+\begin{itemize}[nosep]
+    \item requires no medium (can occur in a vacuum),
+    \item travels at the speed of light,
+    \item depends strongly on surface properties and temperature,
+    \item is governed by electromagnetic wave physics rather than fluid mechanics.
+\end{itemize}
+
+Radiation becomes especially significant at high temperatures because radiative heat flux scales with $T^4$.
+
+
+%-----------------------------------------
+\subsection{21.1 Fundamentals of Thermal Radiation}
+%-----------------------------------------
+
+All matter at $T > 0\,\mathrm{K}$ emits thermal radiation. The emission originates from oscillations of electrons in atoms/molecules.
+
+The key quantity is the \textbf{spectral emissive power}, $E_\lambda(T)$:
+\[
+E_\lambda(T) = \text{energy emitted per unit area per unit wavelength per unit time}.
+\]
+
+The \textbf{total emissive power} (all wavelengths) is:
+\[
+E(T) = \int_0^\infty E_\lambda(T)\,\mathrm{d}\lambda.
+\]
+
+A theoretical surface that emits the maximum possible radiation at any wavelength and temperature is a \textbf{blackbody}. It serves as the reference for all real surfaces.
+
+\subsubsection*{Stefan–Boltzmann law}
+The total radiation emitted by a blackbody is
+\[
+E_b = \sigma T^4,
+\qquad
+\sigma = 5.67 \times 10^{-8}\,\mathrm{W/m^2\cdot K^4}.
+\]
+
+Real surfaces emit less than a blackbody. Their emissive power is
+\[
+E = \varepsilon \sigma T^4,
+\]
+where $0 \le \varepsilon \le 1$ is the \textbf{emissivity}.
+
+\subsubsection*{Kirchhoff’s law (important)}
+For a surface in thermal equilibrium:
+\[
+\varepsilon_\lambda = \alpha_\lambda.
+\]
+That is, a good absorber is a good emitter at the same wavelength.
+
+This becomes essential when studying radiation exchange between surfaces.
+
+
+%-----------------------------------------
+\subsection*{(Very Brief) Essentials from 21.2–21.3}
+%-----------------------------------------
+
+Although not covered in lecture, we need two basic ideas to understand later sections:
+
+\paragraph{1. Spectral radiative properties.}
+Surfaces interact with radiation via:
+\[
+\alpha_\lambda + \rho_\lambda + \tau_\lambda = 1
+\]
+(absorption + reflection + transmission).
+
+Opaque surfaces: $\tau_\lambda = 0$.
+
+\paragraph{2. Directional radiative behavior.}
+Real surfaces may emit or reflect differently depending on direction. A \textbf{diffuse} surface emits uniformly in all directions. Most engineering surfaces are assumed diffuse for simplicity.
+
+These basics enable the radiation network methods used in Sections 21.5–21.8.
+
+
+%-----------------------------------------
+\subsection{21.4 Radiative Properties of Surfaces}
+%-----------------------------------------
+
+A surface interacting with incident radiation has:
+
+\begin{itemize}[nosep]
+    \item \textbf{Absorptivity} $\alpha$: fraction absorbed.
+    \item \textbf{Reflectivity} $\rho$: fraction reflected.
+    \item \textbf{Transmissivity} $\tau$: fraction transmitted (usually 0 for solids).
+\end{itemize}
+
+For opaque solids:
+\[
+\alpha + \rho = 1.
+\]
+
+\subsubsection*{Emissivity}
+\[
+\varepsilon = \frac{\text{actual emitted radiation}}{\text{blackbody emission at same }T}.
+\]
+
+A ``black'' surface has $\varepsilon = 1$.  
+Polished metals have very low emissivity ($0.02$–$0.1$), and rough/dark surfaces have high emissivity ($0.8$–$0.95$).
+
+\subsubsection*{Gray surface approximation}
+If $\varepsilon$ and $\alpha$ do not vary significantly with wavelength, we treat the surface as \textbf{gray}:
+\[
+\varepsilon = \text{constant over all wavelengths}.
+\]
+
+This dramatically simplifies radiation heat transfer.
+
+
+%-----------------------------------------
+\subsection{21.5 View Factors}
+%-----------------------------------------
+
+When two surfaces exchange radiation, not all energy leaving surface 1 reaches surface 2. The geometric fraction that does is the \textbf{view factor} (or configuration factor):
+\[
+F_{1\to2}
+= \text{fraction of radiation leaving surface 1 that strikes surface 2 directly}.
+\]
+
+It depends only on geometry, not temperature or material.
+
+\subsubsection*{View factor definition}
+\[
+F_{1\to2}
+= \frac{1}{A_1}
+\int_{A_1}\int_{A_2}
+\frac{\cos\theta_1 \cos\theta_2}{\pi r^2}\, \mathrm{d}A_1\,\mathrm{d}A_2.
+\]
+
+In practice we rarely evaluate this integral; instead we use known formulas or view factor algebra.
+
+\subsubsection*{Important view factor rules}
+
+\paragraph{1. Reciprocity relation}
+\[
+A_1 F_{1\to2} = A_2 F_{2\to1}.
+\]
+
+\paragraph{2. Summation rule}
+For any enclosure:
+\[
+\sum_{j=1}^N F_{i\to j} = 1.
+\]
+
+\paragraph{3. Surface to itself}
+\[
+F_{i\to i} = 0
+\quad\text{for planar surfaces.}
+\]
+
+\subsubsection*{Common special cases}
+\begin{itemize}[nosep]
+    \item A large plane facing a small object: $F_{obj \to wall} = 1$ but $F_{wall \to obj} \ll 1$ from reciprocity.
+    \item Two infinite parallel plates: $F_{1\to2} = 1$.
+    \item Small surface inside a large enclosure: $F_{1\to surroundings} = 1$.
+\end{itemize}
+
+These will be crucial for black and gray surface radiation exchange.
+
+
+%-----------------------------------------
+\subsection{21.6 Radiation Exchange Between Black Surfaces}
+%-----------------------------------------
+
+A black surface emits radiation as $\sigma T^4$ and absorbs \emph{all} incident radiation ($\alpha = 1$).  
+Therefore blackbody radiation exchange between two surfaces is the simplest case.
+
+For two diffuse, black surfaces 1 and 2:
+\[
+\dot{Q}_{1\to2} = A_1 F_{1\to2}\,\sigma \left(T_1^4 - T_2^4\right).
+\]
+
+This result is extremely useful:
+\begin{itemize}[nosep]
+    \item No radiosity or iterative calculation.
+    \item No emissivity terms.
+    \item Only geometry (via view factors) and temperatures matter.
+\end{itemize}
+
+\subsubsection*{Enclosures with more surfaces}
+In an enclosure with multiple black surfaces, net heat loss from surface $i$ is:
+\[
+\dot{Q}_i = \sum_{j=1}^N A_i F_{i\to j} \sigma \left(T_i^4 - T_j^4\right).
+\]
+
+Black-surface analysis forms the conceptual foundation for gray-surface networks.
+
+
+%-----------------------------------------
+\subsection{21.7 Radiation Networks and Resistances (Black Surfaces)}
+%-----------------------------------------
+
+Although black surfaces have the simplest exchange relationships, the \textbf{network method} helps visualize and generalize to gray surfaces.
+
+\subsubsection*{Radiation network concept}
+We define a “radiation potential”
+\[
+E_b = \sigma T^4,
+\]
+analogous to voltage.  
+The resistance between two black surfaces is:
+\[
+R_{1\to2} = \frac{1}{A_1 F_{1\to2}}.
+\]
+
+Thus:
+\[
+\dot{Q}_{1\to2} = \frac{E_{b1} - E_{b2}}{R_{1\to2}}.
+\]
+
+This matches your convection-conduction electrical analogy from earlier chapters.
+
+The radiation network becomes essential when emissivity is not 1.
+
+
+%-----------------------------------------
+\subsection{21.8 Radiation Exchange Between Gray, Diffuse Surfaces}
+%-----------------------------------------
+
+Real surfaces have emissivity $\varepsilon < 1$ and may reflect radiation.  
+We use \textbf{radiosity} and \textbf{irradiation}:
+
+\begin{itemize}[nosep]
+    \item Radiosity $J$: total radiation \emph{leaving} a surface (emitted + reflected).
+    \item Irradiation $G$: total radiation \emph{arriving at} a surface.
+\end{itemize}
+
+\subsubsection*{21.8.1 Surface relations}
+
+For a gray, diffuse surface:
+\[
+J = \varepsilon E_b + (1 - \varepsilon) G.
+\]
+
+Net heat leaving the surface:
+\[
+\dot{q} = J - G.
+\]
+
+\subsubsection*{Convective-like radiation coefficients}
+We define a \textbf{surface radiation resistance}:
+\[
+R_{\text{surf},i} = \frac{1 - \varepsilon_i}{\varepsilon_i A_i}.
+\]
+
+And an \textbf{exchange resistance} (from view factor):
+\[
+R_{i\to j} = \frac{1}{A_i F_{i\to j}}.
+\]
+
+Together these form a thermal-resistance-like network similar to conduction and convection.
+
+\subsubsection*{21.8.2 Two gray surfaces}
+
+For two diffuse, gray surfaces exchanging radiation:
+\[
+\dot{Q} = \frac{E_{b1} - E_{b2}}{
+    R_{\text{surf},1} + R_{1\to 2} + R_{\text{surf},2}
+}.
+\]
+
+Explicitly:
+\[
+\dot{Q} = 
+\frac{\sigma(T_1^4 - T_2^4)}{
+    \frac{1-\varepsilon_1}{\varepsilon_1 A_1}
+    + \frac{1}{A_1 F_{1\to2}}
+    + \frac{1-\varepsilon_2}{\varepsilon_2 A_2}
+}.
+\]
+
+\paragraph{If the two surfaces form an enclosure (common case)}
+Then $F_{1\to2} = 1$ and $A_1 = A_2$:
+\[
+\dot{Q}
+= \frac{\sigma A \left(T_1^4 - T_2^4\right)}{
+    \frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} - 1
+}.
+\]
+
+This is one of the most commonly used gray-surface formulas in engineering.
+
+
+\subsubsection*{21.8.3 Radiation Exchange With Many Gray Surfaces}
+
+The full multidimensional problem uses:
+\begin{itemize}[nosep]
+    \item A radiosity node at each surface,
+    \item A surface resistance $R_{\text{surf},i}$,
+    \item A geometry resistance $R_{i\to j}$,
+    \item Energy conservation at each node.
+\end{itemize}
+
+This is analogous to solving a linear circuit with multiple nodes.  
+However, for most practical textbook problems, only two-surface gray radiation is required.
+
+\bigskip
+
+\textbf{Summary of radiation exchange steps (gray surfaces):}
+\begin{enumerate}[nosep]
+    \item Compute $E_{bi} = \sigma T_i^4$.
+    \item Compute $R_{\text{surf},i} = \dfrac{1-\varepsilon_i}{\varepsilon_i A_i}$.
+    \item Compute $R_{1\to2} = \dfrac{1}{A_1 F_{1\to 2}}$.
+    \item Use 
+    \[
+    \dot{Q} = \dfrac{E_{b1} - E_{b2}}{
+        R_{\text{surf},1} + R_{1\to2} + R_{\text{surf},2}
+    }.
+    \]
+\end{enumerate}
+
+This parallels conduction and convection resistance networks and matches the style of earlier chapters.
+
+\end{document}
