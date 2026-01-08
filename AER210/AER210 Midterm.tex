@@ -1,0 +1,283 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=0.7in]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\setlist[itemize]{noitemsep,topsep=0pt,leftmargin=1.2em}
+\setlist[enumerate]{noitemsep,topsep=0pt,leftmargin=1.4em}
+\renewcommand{\baselinestretch}{1.1}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\begin{document}
+\begin{center}
+{\LARGE \textbf{AER210 Midterm Field Guide — Multiple Integrals \& Vector Calculus}}\\[2mm]\end{center}
+
+% ------------------------------
+\section{Multiple Integrals}
+
+\subsection{Regions \& Setup (Type I/II) — Stewart 15.1–15.2}
+\textbf{Type I (vertical slices):}
+\[
+R=\{(x,y):a\le x\le b,\,g_1(x)\le y\le g_2(x)\},\quad
+\iint_R f\,dA=\int_a^b\!\!\int_{g_1(x)}^{g_2(x)}f(x,y)\,dy\,dx
+\]
+\textbf{Type II (horizontal slices):}
+\[
+R=\{(x,y):c\le y\le d,\,h_1(y)\le x\le h_2(y)\},\quad
+\iint_R f\,dA=\int_c^d\!\!\int_{h_1(y)}^{h_2(y)}f(x,y)\,dx\,dy
+\]
+\textbf{Midterm pattern:} reversing order/sketching region (2024 Q1b).  
+\\
+\textbf{Checklist:}
+\begin{itemize}
+\item Sketch axes, curves, intercepts.
+\item Decide vertical/horizontal order.
+\item Write new bounds before touching integrand.
+\end{itemize}
+
+\subsection{Double Integrals in Polar — Stewart 15.3}
+Polar: \(x=r\cos\theta,\ y=r\sin\theta,\ dA=r\,dr\,d\theta.\)  
+“Circle/annulus/rotational symmetry → polar.”  
+Paraboloids intersection → footprint curve in \(xy\)‐plane gives \(r\)‐limits.
+\[
+V=\int_{\theta_1}^{\theta_2}\!\int_{r_1(\theta)}^{r_2(\theta)}
+[z_{\text{top}}(r)-z_{\text{bot}}(r)]\,r\,dr\,d\theta
+\]
+
+\subsection{Applications of \(\iint\): Mass, COM, MOI — Stewart 15.4}
+\[
+m=\iint_R\rho\,dA,\qquad
+\bar{x}=\frac{1}{m}\iint_R x\rho\,dA,\quad
+\bar{y}=\frac{1}{m}\iint_R y\rho\,dA
+\]
+\[
+I_O=\iint_R (x^2+y^2)\rho\,dA
+\]
+Change of variables often simplifies these (2022 Q6).
+
+\subsection{Surface Area — Stewart 15.5 \& 16.6}
+Graph \(z=f(x,y)\): \(dS=\sqrt{1+f_x^2+f_y^2}\,dA.\)  
+Parametric \(\mathbf r(u,v)\): \(dS=\|\mathbf r_u\times\mathbf r_v\|\,du\,dv.\)
+\begin{itemize}
+\item Compute \(\mathbf r_u,\mathbf r_v\)
+\item Cross product, then integrate magnitude over parameter box
+\end{itemize}
+
+\subsection{Triple Integrals — Stewart 15.6}
+Switch order to simplify; choose suitable coordinates.  
+Cylindrical: \(dV=r\,dr\,d\theta\,dz\); Spherical: \(dV=\rho^2\sin\phi\,d\rho\,d\phi\,d\theta.\)
+
+\subsection{Cylindrical \& Spherical Coords — Stewart 15.7–15.8}
+\[
+\begin{aligned}
+&\text{Cylindrical: } (r,\theta,z),\ x=r\cos\theta,\ y=r\sin\theta,\ dV=r\,dr\,d\theta\,dz\\
+&\text{Spherical: } (\rho,\phi,\theta),\ x=\rho\sin\phi\cos\theta,\,y=\rho\sin\phi\sin\theta,\,z=\rho\cos\phi,\\
+&dV=\rho^2\sin\phi\,d\rho\,d\phi\,d\theta
+\end{aligned}
+\]
+
+\subsection{Taylor in Two Variables (2\textsuperscript{nd} order)}
+\[
+f(x,y)\approx f_0+f_x\Delta x+f_y\Delta y+\tfrac12(f_{xx}\Delta x^2+2f_{xy}\Delta x\Delta y+f_{yy}\Delta y^2)
+\]
+Used for local quadratic approximations; Hessian signs → shape info.
+
+\subsection{Change of Variables \& Jacobian — Stewart 15.9}
+\[
+\iint_R f(x,y)\,dx\,dy=\iint_S f(x(u,v),y(u,v))
+\Big|\frac{\partial(x,y)}{\partial(u,v)}\Big|\,du\,dv
+\]
+Choose new variables to straighten level curves.  
+Checklist:
+\begin{itemize}
+\item Guess \(u,v\) from bounding curves.
+\item Compute Jacobian \(J\).
+\item Substitute and replace \(dx\,dy\) with \(|J|\,du\,dv.\)
+\end{itemize}
+
+% ------------------------------
+\section{Vector Calculus}
+
+\subsection{Line Integrals — Stewart 16.2}
+Scalar: \(\displaystyle \int_C f\,ds=\int_a^b f(\mathbf r(t))\|\mathbf r'(t)\|dt\).  
+Vector (work): \(\displaystyle \int_C \mathbf F\!\cdot\! d\mathbf r=\int_a^b \mathbf F(\mathbf r(t))\!\cdot\!\mathbf r'(t)\,dt.\)
+\begin{itemize}
+\item Parameterize \(C\); compute \(\mathbf r'(t)\).
+\item Plug into correct formula.
+\item If field looks like gradient, jump to FTLI.
+\end{itemize}
+
+\subsection{Fundamental Theorem for Line Integrals (FTLI) — Stewart 16.3}
+If \(\mathbf F=\nabla f\), then \(\displaystyle \int_C\mathbf F\!\cdot\! d\mathbf r=f(B)-f(A)\).  
+Conservative test: \(\nabla\times\mathbf F=\mathbf0\Rightarrow\) path independent.
+
+\subsection{Green’s Theorem — Stewart 16.4}
+\[
+\oint_C P\,dx+Q\,dy=\iint_R\!\Big(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\Big)dA
+\]
+Use for positively oriented closed \(C\).
+\begin{itemize}
+\item Check CCW orientation
+\item Compute integrand
+\item Integrate over region
+\end{itemize}
+
+\subsection{Parametric Surfaces \& Surface Area — Stewart 16.6}
+\(\mathbf n=\mathbf r_u\times\mathbf r_v\), 
+Area \(=\iint_D\|\mathbf r_u\times\mathbf r_v\|\,du\,dv.\)
+
+\subsection{Surface Integrals — Stewart 16.7}
+Scalar: \(\iint_S f\,dS\);\quad Flux: \(\iint_S \mathbf F\!\cdot\!\mathbf n\,dS.\)  
+Graph \(z=f(x,y)\): 
+\[
+\mathbf n=\frac{\langle -f_x,-f_y,1\rangle}{\sqrt{1+f_x^2+f_y^2}},\quad 
+\mathbf F\!\cdot\!\mathbf n\,dS=\mathbf F\!\cdot\!\langle -f_x,-f_y,1\rangle\,dx\,dy
+\]
+
+\subsection{Divergence \& Curl — Stewart 16.5}
+\(\nabla\!\cdot\!\mathbf F\): sources/sinks;\quad \(\nabla\times\mathbf F\): rotation.  
+\(\nabla\times(\nabla f)=\mathbf0.\)  
+If curl = 0 on simply connected domain → conservative.
+
+\subsection{Divergence Theorem — Stewart 16.9}
+\[
+\iint_{\partial V}\mathbf F\!\cdot\!\mathbf n\,dS=\iiint_V (\nabla\!\cdot\!\mathbf F)\,dV
+\]
+
+\subsection{Stokes’ Theorem — Stewart 16.8}
+\[
+\oint_{\partial S}\mathbf F\!\cdot\! d\mathbf r
+=\iint_S (\nabla\times\mathbf F)\!\cdot\!\mathbf n\,dS
+\]
+Boundary orientation : right-hand rule.  
+Checklist:
+\begin{itemize}
+\item Compute curl
+\item Choose \(S\) with easy \(dS\)
+\item Dot, convert to polar if disk footprint
+\end{itemize}
+
+% ------------------------------
+\section{Past-Midterm Style Playbook}
+\begin{itemize}
+\item Reverse order → sketch and flip (2024 Q1b)
+\item Volume between paraboloids → polar \(z_t-z_b\) (2022/2024)
+\item Param curve line integral → param + plug (2024 Q2); if curl = 0 → FTLI
+\item Green’s on polygon → double integral (2022 Q3; 2024 Q3)
+\item Conservative → potential → \(f(B)-f(A)\)
+\item Surface patch → param; flux via \(\mathbf r_u\times\mathbf r_v\)
+\item Stokes on cap → curl, upward normal, polar disk (2024 Q8)
+\item Change of vars → rectangularize (2022 Q6; 2024 Q6)
+\end{itemize}
+
+% ------------------------------
+\section{Little Tricks \& Assumptions}
+\begin{itemize}
+\item Orientation matters (Green/Stokes/flux)
+\item Always attach Jacobian: polar \(r\); cylindrical \(r\); spherical \(\rho^2\sin\phi\)
+\item Conservative → closed loop integral = 0
+\item Green’s prefers triangles/rectangles/disks
+\item Switch order when integrand separates
+\item Symmetry: odd -> 0; even -> double half-region
+\item Piecewise curves: keep orientation or use Green’s
+\end{itemize}
+
+% ------------------------------
+\section{Harder Integrals \& Trig Identities}
+
+\subsection*{Basic Identities}
+\[
+\sin^2\theta + \cos^2\theta = 1
+\]
+\[
+\int \sin\theta\cos\theta\,d\theta = \tfrac{1}{2}\sin^2\theta + C
+\]
+
+\subsection*{Power Reduction}
+\[
+\sin^2\theta = \tfrac{1 - \cos 2\theta}{2}, \qquad
+\cos^2\theta = \tfrac{1 + \cos 2\theta}{2}
+\]
+
+\subsection*{Double-Angle Formulas}
+\[
+\begin{aligned}
+\sin 2A &= 2\sin A\cos A,\\
+\cos 2A &= \cos^2 A - \sin^2 A = 1 - 2\sin^2 A = 2\cos^2 A - 1,\\
+\tan 2A &= \dfrac{2\tan A}{1 - \tan^2 A}
+\end{aligned}
+\]
+
+\subsection*{Sum and Difference Formulas}
+\[
+\begin{aligned}
+\sin(A \pm B) &= \sin A \cos B \pm \cos A \sin B,\\
+\cos(A \pm B) &= \cos A \cos B \mp \sin A \sin B,\\
+\tan(A \pm B) &= \dfrac{\tan A \pm \tan B}{1 \mp \tan A \tan B}
+\end{aligned}
+\]
+
+\subsection*{Product-to-Sum Formulas}
+\[
+\begin{aligned}
+\sin A \sin B &= \tfrac{1}{2}\big[\cos(A - B) - \cos(A + B)\big],\\
+\cos A \cos B &= \tfrac{1}{2}\big[\cos(A - B) + \cos(A + B)\big],\\
+\sin A \cos B &= \tfrac{1}{2}\big[\sin(A + B) + \sin(A - B)\big]
+\end{aligned}
+\]
+
+\subsection*{Polar, Cylindrical, and Spherical Volume Elements}
+\[
+\begin{aligned}
+dA &= r\,dr\,d\theta,\\
+dV_{\text{cyl}} &= r\,dr\,d\theta\,dz,\\
+dV_{\text{sph}} &= \rho^2\sin\phi\,d\rho\,d\phi\,d\theta
+\end{aligned}
+\]
+
+% ------------------------------
+\section{Quadric Surfaces (Recognition Cheat)}
+\[
+\begin{aligned}
+&\text{Ellipsoid: } \frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\\
+&\text{Cone: } \frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=0\\
+&\text{Elliptic paraboloid: } \frac{x^2}{a^2}+\frac{y^2}{b^2}=\frac{z}{c}\\
+&\text{Hyperboloid (1 sheet): } \frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1\\
+&\text{Hyperboloid (2 sheets): } -\frac{x^2}{a^2}-\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\\
+&\text{Hyperbolic paraboloid: } \frac{x^2}{a^2}-\frac{y^2}{b^2}=\frac{z}{c}
+\end{aligned}
+\]
+Intersect with coordinate planes to identify quickly.
+
+% ------------------------------
+\section{One-Page Checklists}
+A) Volume between two surfaces: intersect → polar → integrate \(r\).\\
+B) Reverse order: sketch, rewrite as Type I/II.\\
+C) Line integral: decide scalar/vector → FTLI if curl = 0.\\
+D) Green’s: CCW → compute → integrate.\\
+E) Conservative: curl 0 → find \(f\) → \(f(B)-f(A)\).\\
+F) Param surface: \(\mathbf r_u\times\mathbf r_v\).\\
+G) Stokes cap: upward normal → polar disk.\\
+H) Change of vars: pick \(u,v\) → compute \(|J|\).
+
+% ------------------------------
+\section{Quick Definitions}
+Type I/II regions: vertical vs horizontal.\\
+Piecewise smooth curve: \(\mathbf r'(t)\) continuous/non-zero.\\
+Conservative field: path independent; \(\mathbf F=\nabla f\).\\
+Flux = flow across surface (\(\mathbf F\!\cdot\!\mathbf n\)).\\
+Source/Sink : sign of divergence.\\
+Laplacian \(\Delta f=\nabla\!\cdot\!\nabla f\).
+
+% ------------------------------
+\section{Mini Practice Prompts}
+\begin{enumerate}
+\item Reverse order of \(\int_0^1\!\!\int_x^1 e^{x/y}\,dy\,dx\)
+\item Volume between \(z=4-r^2\) and \(z=3r^2\)
+\item Check conservativity of \(\mathbf F=(3+2xy^2,2x^2y)\); find \(f\)
+\item Use Green’s on triangle \((0,0),(2,1),(0,1)\)
+\item Verify Stokes for paraboloid cap (upward normal)
+\end{enumerate}
+
+\end{document}
