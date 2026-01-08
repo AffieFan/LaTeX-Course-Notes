@@ -1,0 +1,754 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,siunitx,physics,geometry}
+\geometry{margin=1in}
+\setlength{\parskip}{0.7em}
+
+\begin{document}
+
+\title{\textbf{Chapter 7: The Schrödinger Equation in One Dimension}}
+\author{Comprehensive Notes}
+\date{}
+\maketitle
+
+\section*{7.1 Introduction}
+\begin{itemize}
+    \item In \textbf{classical mechanics}, motion is determined by Newton’s law:
+    \[
+    F = m\,a = m\,\frac{d^2x}{dt^2}.
+    \]
+    \item In \textbf{quantum mechanics}, the state of motion is described by a \textbf{wavefunction} $\Psi(x,t)$.
+    \item Its evolution is governed by the \textbf{time-dependent Schrödinger equation} (TDSE):
+    \[
+    i\hbar \frac{\partial \Psi}{\partial t} = \left[-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+U(x)\right]\Psi.
+    \]
+    \item For states of definite total energy $E$, $\Psi$ separates into spatial and temporal parts:
+    \[
+    \Psi(x,t) = \psi(x)e^{-iEt/\hbar},
+    \]
+    reducing the TDSE to the simpler \textbf{time-independent Schrödinger equation} (TISE):
+    \[
+    -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+U(x)\psi=E\psi.
+    \]
+    These $\psi(x)$ describe stationary (standing-wave) states.
+\end{itemize}
+
+\section*{7.2 Classical Standing Waves}
+For a string of length $a$ fixed at both ends:
+\[
+y(x,t)=A\sin(kx)\cos(\omega t),
+\]
+where $k=2\pi/\lambda$ and $\omega=2\pi f$.
+\begin{itemize}
+    \item Boundary conditions: $y(0,t)=y(a,t)=0$ $\Rightarrow$ $\lambda_n=2a/n$, $n=1,2,3,\dots$
+    \item Only integer numbers of half-wavelengths fit between the ends.
+    \item Quantization arises from the \emph{boundary condition}, not from any discrete force.
+\end{itemize}
+
+\section*{7.3 Standing Waves in Quantum Mechanics: Stationary States}
+
+\paragraph{Connecting classical and quantum standing waves.}
+In classical physics, a standing wave on a string can be written as:
+\[
+y(x,t)=A\sin(kx)\cos(\omega t),
+\]
+a product of a spatial function and a temporal function. The points where the wave is always zero are called \textbf{nodes}, and the string oscillates between them without net motion along $x$.
+
+In quantum mechanics, a similar separation occurs for the wavefunction $\Psi(x,t)$:
+\[
+\Psi(x,t) = \psi(x)\,T(t),
+\]
+where $\psi(x)$ describes the spatial distribution and $T(t)$ the time evolution.  
+However, unlike classical waves, $\Psi$ is generally \textbf{complex-valued}.
+
+\paragraph{Complex time dependence.}
+In quantum mechanics the time factor naturally combines $\cos(\omega t)$ and $\sin(\omega t)$ into a single exponential using Euler’s formula:
+\[
+e^{-i\omega t} = \cos(\omega t) - i\sin(\omega t),
+\]
+so that a quantum standing wave takes the form
+\[
+\boxed{\Psi(x,t)=\psi(x)e^{-i\omega t}}.
+\]
+This compact representation simplifies analysis, and the imaginary unit $i$ does not imply any “imaginary” physical quantity—observable quantities come from real combinations such as $|\Psi|^2$.
+
+\paragraph{Energy of a stationary state.}
+From the Planck–de Broglie relation:
+\[
+E = \hbar\omega,
+\]
+each stationary state corresponds to a definite, quantized energy. A system in such a state has a fixed total energy and a wavefunction that oscillates in time with angular frequency $\omega$ but does not change its spatial probability distribution.
+
+\paragraph{Time independence of probability density.}
+The measurable quantity is the \textbf{probability density}:
+\[
+|\Psi(x,t)|^2 = \Psi^*(x,t)\Psi(x,t) = \psi^*(x)\psi(x)|e^{-i\omega t}|^2 = |\psi(x)|^2.
+\]
+Since $|e^{-i\omega t}|=1$, the probability density is independent of time.  
+Thus, in a stationary state the distribution of where the particle may be found does not vary with time—analogous to a classical standing wave with stationary nodes.
+
+\paragraph{Interpretation and terminology.}
+\begin{itemize}
+    \item A \textbf{stationary state} (or energy eigenstate) is one whose probability density $|\Psi|^2$ is time-independent.
+    \item These are the quantum analogue of classical standing waves: energy is fixed and the shape of the wave does not change in time.
+    \item The spatial part $\psi(x)$ determines the allowed patterns of standing waves, which are quantized by the system’s boundary conditions.
+    \item The time-dependent factor $e^{-iEt/\hbar}$ merely adds a uniform phase rotation and carries no measurable effect on probabilities.
+\end{itemize}
+
+\paragraph{Superpositions and time dependence.}
+If two stationary states of different energies are combined,
+\[
+\Psi(x,t)=c_1\psi_1(x)e^{-iE_1t/\hbar}+c_2\psi_2(x)e^{-iE_2t/\hbar},
+\]
+the cross-term in $|\Psi|^2$ introduces oscillations with frequency $(E_2-E_1)/\hbar$.  
+This interference causes the probability density to vary with time—these are \textbf{non-stationary states}.
+
+\section*{7.4 Particle in a Rigid Box (Infinite Square Well)}
+
+\paragraph{Physical model.}
+Consider a particle of mass $m$ confined to move along the $x$-axis between two perfectly rigid walls at $x=0$ and $x=a$.  
+\[
+U(x) =
+\begin{cases}
+0, & 0 < x < a, \\[3pt]
+\infty, & x \le 0 \text{ or } x \ge a.
+\end{cases}
+\]
+Inside the box, the particle is free (no forces), while the infinite potential barriers prevent it from escaping.  
+This model is often called the \textbf{infinite potential well} or \textbf{rigid box}.
+
+\paragraph{Boundary conditions.}
+Because the wavefunction must vanish wherever the potential is infinite:
+\[
+\psi(0) = 0, \qquad \psi(a) = 0.
+\]
+The wavefunction must also be continuous within the well and cannot have discontinuities at the walls.
+
+\paragraph{Solving the Schrödinger equation.}
+Within the box ($U=0$), the time-independent Schrödinger equation (TISE) becomes
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi
+\quad\Rightarrow\quad
+\frac{d^2\psi}{dx^2} + k^2\psi = 0,
+\]
+where \(k = \sqrt{2mE}/\hbar\).
+
+The general solution is
+\[
+\psi(x) = A\sin(kx) + B\cos(kx).
+\]
+
+\paragraph{Applying the boundary conditions.}
+\begin{align*}
+\psi(0) = 0 &\Rightarrow B = 0,\\
+\psi(a) = 0 &\Rightarrow A\sin(ka) = 0.
+\end{align*}
+A nontrivial solution requires $\sin(ka)=0$, which occurs only if
+\[
+k = \frac{n\pi}{a}, \qquad n = 1,2,3,\dots
+\]
+
+\paragraph{Quantized energies.}
+Substituting $k_n = n\pi/a$ into $E = \hbar^2k^2/2m$ gives the discrete energy levels:
+\[
+\boxed{E_n = \frac{n^2\pi^2\hbar^2}{2ma^2}}, \qquad n=1,2,3,\dots
+\]
+These energies increase as $n^2$ and cannot be zero. The lowest level ($n=1$) is the \textbf{ground-state energy}:
+\[
+E_1 = \frac{\pi^2\hbar^2}{2ma^2}.
+\]
+This nonzero minimum energy reflects the Heisenberg uncertainty principle — confinement prevents the particle from being truly at rest.
+
+\paragraph{Normalized wavefunctions.}
+Normalization requires that
+\[
+\int_0^a |\psi(x)|^2 dx = 1.
+\]
+Substituting $\psi(x)=A\sin(k_nx)$ yields $A = \sqrt{2/a}$, so
+\[
+\boxed{\psi_n(x) = \sqrt{\frac{2}{a}}\sin\!\left(\frac{n\pi x}{a}\right)}.
+\]
+
+\paragraph{Probability density and nodes.}
+\[
+|\psi_n(x)|^2 = \frac{2}{a}\sin^2\!\left(\frac{n\pi x}{a}\right).
+\]
+\begin{itemize}
+    \item Each state has $n-1$ interior nodes where $\psi=0$.
+    \item Higher $n$ → shorter wavelength → larger momentum → higher energy.
+    \item For $n=1$, the probability is largest at the center ($x=a/2$).
+\end{itemize}
+
+\paragraph{Interpretation.}
+\begin{itemize}
+    \item The quantization of energy arises from boundary conditions that restrict $\lambda$:
+    \[
+    \lambda_n = \frac{2a}{n}.
+    \]
+    \item The wavefunction can be viewed as a \textbf{standing de Broglie wave} trapped between impenetrable walls.
+    \item The particle’s momentum is not single-valued: the state is an equal superposition of right- and left-moving waves with $p=\pm\hbar k_n$.
+\end{itemize}
+
+\paragraph{Complete time-dependent solution.}
+Including the time factor $e^{-iE_nt/\hbar}$:
+\[
+\boxed{\Psi_n(x,t)=\sqrt{\frac{2}{a}}\sin\!\left(\frac{n\pi x}{a}\right)e^{-iE_nt/\hbar}}.
+\]
+Each $\Psi_n$ represents a stationary state: $|\Psi_n|^2 = |\psi_n|^2$ is constant in time.
+
+\paragraph{Expectation values (summary).}
+For each normalized state:
+\[
+\langle x\rangle = \frac{a}{2}, \qquad \langle p\rangle = 0, \qquad \langle E\rangle = E_n.
+\]
+The particle is equally likely to move left or right inside the well, and its average position is at the center.
+
+\paragraph{Key results.}
+\begin{align*}
+\text{Allowed wavelengths:}\ & \lambda_n = \frac{2a}{n},\\[3pt]
+\text{Allowed energies:}\ & E_n = \frac{n^2\pi^2\hbar^2}{2ma^2},\\[3pt]
+\text{Normalized wavefunctions:}\ & \psi_n(x)=\sqrt{\frac{2}{a}}\sin\!\left(\frac{n\pi x}{a}\right).
+\end{align*}
+Quantization therefore emerges naturally from the wave nature of matter and the boundary conditions of confinement.
+
+
+\section*{7.5 The Time-Independent Schrödinger Equation (TISE)}
+
+\paragraph{Motivation.}
+In the previous section, the particle-in-a-box model showed that allowed energies and wavefunctions arise from requiring that a “matter wave” fit an integer number of half-wavelengths within a confined region.  
+This example hints at a deeper rule: the shape of $\psi(x)$ and the allowed energies $E$ are always linked through a single fundamental equation — the \textbf{Schrödinger equation}.
+
+\paragraph{From wave motion to energy.}
+For a free particle ($U(x)=0$), the de Broglie relations give
+\[
+p = \hbar k, \qquad E = \frac{p^2}{2m} = \frac{\hbar^2 k^2}{2m}.
+\]
+A sinusoidal wave $\psi(x) = A\sin(kx)$ satisfies
+\[
+\frac{d^2\psi}{dx^2} = -k^2\psi.
+\]
+Combining these two equations, we can rewrite the curvature of the wave in terms of its energy:
+\[
+\frac{d^2\psi}{dx^2} = -\frac{2mE}{\hbar^2}\psi.
+\]
+
+\paragraph{Including potential energy.}
+When the particle moves in a potential $U(x)$, its total energy is
+\[
+E = K + U(x),
+\]
+so the kinetic energy becomes $K = E - U(x)$.  
+Replacing $E$ by $E - U(x)$ in the previous relation gives
+\[
+\frac{d^2\psi(x)}{dx^2} = -\frac{2m}{\hbar^2}[E - U(x)]\psi(x).
+\]
+Rearranging yields the \textbf{time-independent Schrödinger equation}:
+\[
+\boxed{-\frac{\hbar^2}{2m}\frac{d^2\psi(x)}{dx^2} + U(x)\psi(x) = E\psi(x).}
+\]
+
+\paragraph{Physical meaning of each term.}
+\begin{itemize}
+    \item $-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}$ — represents the \textbf{kinetic energy operator} acting on the wavefunction; the second derivative measures how rapidly $\psi$ bends or curves in space. A larger curvature corresponds to higher kinetic energy.
+    \item $U(x)\psi(x)$ — potential energy contribution at each point in space.
+    \item $E\psi(x)$ — total energy times the wavefunction.
+\end{itemize}
+Thus the equation simply states: \emph{total energy = kinetic + potential}, expressed in waveform language.
+
+\paragraph{Operator form (Hamiltonian).}
+The operator acting on $\psi(x)$ is called the \textbf{Hamiltonian operator}:
+\[
+\boxed{\hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + U(x)}.
+\]
+The Schrödinger equation can therefore be written compactly as the \textbf{eigenvalue equation}:
+\[
+\hat{H}\psi(x) = E\psi(x),
+\]
+where $E$ is the eigenvalue (a measurable energy) and $\psi(x)$ is the corresponding eigenfunction (the stationary state).
+
+\paragraph{Interpreting the solutions.}
+\begin{itemize}
+    \item Only specific values of $E$ yield wavefunctions that are physically acceptable (continuous, finite, and normalizable).  
+      These allowed $E$ values are the \textbf{quantized energy levels}.
+    \item The function $\psi(x)$ gives the \textbf{probability amplitude} for finding the particle near position $x$.  
+      The measurable probability density is
+      \[
+      P(x) = |\psi(x)|^2.
+      \]
+    \item The normalization condition ensures total probability equals one:
+      \[
+      \int_{-\infty}^{\infty} |\psi(x)|^2\,dx = 1.
+      \]
+\end{itemize}
+
+\paragraph{Connection to classical ideas.}
+In classical mechanics, Newton’s second law
+\[
+m\frac{d^2x}{dt^2} = \sum F
+\]
+links acceleration to force.  
+In quantum mechanics, the Schrödinger equation plays a similar role: it links the spatial curvature of the wavefunction (which encodes kinetic energy) to the potential energy landscape $U(x)$.  
+Thus, it serves as the \emph{quantum analogue of Newton’s second law}.
+
+\paragraph{Examples of potentials and their solutions.}
+\begin{itemize}
+    \item \textbf{Infinite square well:} $U(x)=0$ for $0<x<a$, $U=\infty$ elsewhere → discrete energies $E_n \propto n^2$.
+    \item \textbf{Harmonic oscillator:} $U(x)=\tfrac{1}{2}kx^2$ → equally spaced energy levels.
+    \item \textbf{Hydrogen atom:} $U(r)=-\dfrac{k_e e^2}{r}$ → energy levels $E_n \propto -1/n^2$.
+\end{itemize}
+Each potential gives rise to its own characteristic set of quantized energies and spatial wavefunctions.
+
+\section*{7.6 Operators and Observables}
+
+\paragraph{Motivation.}
+The Schrödinger equation gives us $\psi(x)$, but how do we extract physical quantities — such as position, momentum, or energy — from it?  
+In quantum mechanics, \textbf{every measurable quantity (observable)} is represented not by a number, but by a \textbf{mathematical operator} that acts on the wavefunction.
+
+\paragraph{Operators in quantum mechanics.}
+An \textbf{operator} is a rule that transforms one function into another, e.g.
+\[
+\hat{A}f(x) = g(x).
+\]
+If applying an operator $\hat{A}$ to $\psi(x)$ returns the same function multiplied by a constant,
+\[
+\hat{A}\psi(x) = a\,\psi(x),
+\]
+then $\psi(x)$ is called an \textbf{eigenfunction} of $\hat{A}$, and $a$ is its \textbf{eigenvalue}.  
+That eigenvalue represents a definite, measurable value of the observable associated with $\hat{A}$.
+
+\paragraph{The Hamiltonian operator.}
+The Schrödinger equation itself is an eigenvalue equation where the operator is the Hamiltonian $\hat{H}$:
+\[
+\boxed{\hat{H}\psi(x) = E\psi(x)},
+\]
+where
+\[
+\boxed{\hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + U(x)}.
+\]
+Here:
+\begin{itemize}
+    \item $\hat{H}$ — total energy operator,
+    \item $E$ — eigenvalue (the measurable total energy),
+    \item $\psi(x)$ — eigenfunction (stationary state).
+\end{itemize}
+
+\paragraph{Common one-dimensional operators.}
+\[
+\begin{array}{lll}
+\textbf{Observable} & \textbf{Operator form} & \textbf{Interpretation} \\[5pt]
+\hline
+\text{Position} & \hat{x} = x & \text{Acts by multiplication (returns $x\psi$)} \\[5pt]
+\text{Momentum} & \hat{p} = -i\hbar\,\dfrac{d}{dx} & \text{Measures spatial change in $\psi$; related to $\lambda$.} \\[8pt]
+\text{Kinetic energy} & \hat{T} = \dfrac{\hat{p}^2}{2m} = -\dfrac{\hbar^2}{2m}\dfrac{d^2}{dx^2} & \text{Derived from momentum operator.} \\[8pt]
+\text{Potential energy} & \hat{U} = U(x) & \text{Acts by multiplication.} \\[5pt]
+\text{Total energy (Hamiltonian)} & \hat{H} = \hat{T} + \hat{U} & \text{Defines the full system’s energy.}
+\end{array}
+\]
+
+\paragraph{Interpretation of eigenvalue equations.}
+\begin{itemize}
+    \item When $\psi(x)$ is an eigenfunction of $\hat{A}$, measurement of that observable always yields the eigenvalue $a$.
+    \item When $\psi(x)$ is not an eigenfunction, the measurement outcomes vary — only the \textbf{average} (expectation value) can be predicted.
+    \item Thus, operators connect the wavefunction’s mathematical form to experimentally measurable results.
+\end{itemize}
+
+\paragraph{Analogy with linear algebra.}
+In linear algebra, eigenvalue equations have the form
+\[
+A\vec{v} = \lambda\vec{v}.
+\]
+Here $A$ is a matrix (operator), $\vec{v}$ is an eigenvector (state), and $\lambda$ is an eigenvalue (measured value).  
+Quantum mechanics generalizes this concept: $\psi(x)$ plays the role of $\vec{v}$, and operators replace matrices.
+
+\paragraph{Example: Applying operators.}
+For a harmonic potential $U(x) = \tfrac{1}{2}kx^2$ and trial wavefunction $\psi(x) = e^{-\alpha x^2}$:
+\[
+\begin{aligned}
+\hat{x}\psi(x) &= x e^{-\alpha x^2}, \\[3pt]
+\hat{p}\psi(x) &= -i\hbar\,\frac{d}{dx}(e^{-\alpha x^2}) = 2i\hbar\alpha x e^{-\alpha x^2}, \\[3pt]
+\hat{H}\psi(x) &= \left[-\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + \tfrac{1}{2}kx^2\right] e^{-\alpha x^2}.
+\end{aligned}
+\]
+Each operator transforms the wavefunction in a way that corresponds to the physical operation of “measuring” the associated quantity.
+
+\paragraph{Eigenvalues and physical meaning.}
+\begin{itemize}
+    \item The eigenvalue $E$ of $\hat{H}$ gives the measurable energy of a stationary state.
+    \item The eigenvalue $p$ of $\hat{p}$ gives a definite momentum state.
+    \item In general, two observables can be simultaneously known with precision only if their operators \textbf{commute}:
+    \[
+    [\hat{A}, \hat{B}] = \hat{A}\hat{B} - \hat{B}\hat{A} = 0.
+    \]
+    \item For example, position and momentum do not commute, leading to the Heisenberg uncertainty principle.
+\end{itemize}
+
+\section*{7.7 Expectation Values}
+
+\paragraph{Motivation.}
+In quantum mechanics, measurements are inherently probabilistic.  
+When an observable does not have a definite value (i.e., $\psi$ is not an eigenfunction of its operator), we can still predict the \textbf{average result} obtained from many identical measurements.  
+This average is called the \textbf{expectation value}.
+
+\paragraph{Classical analogy.}
+In probability theory, if a quantity $x$ can take values with probabilities $P(x)$, the average or expected value is
+\[
+\langle x \rangle = \int x\,P(x)\,dx.
+\]
+In quantum mechanics, the probability density is given by the wavefunction:
+\[
+P(x) = |\psi(x)|^2 = \psi^*(x)\psi(x).
+\]
+Thus, the same concept applies — but with $\psi(x)$ replacing $P(x)$.
+
+\paragraph{Definition (position expectation value).}
+The expectation value of position is:
+\[
+\boxed{\langle x \rangle = \int_{-\infty}^{\infty} x\,|\psi(x)|^2\,dx = \int_{-\infty}^{\infty} \psi^*(x)\,x\,\psi(x)\,dx.}
+\]
+This gives the average position you would find the particle if many measurements were made on identically prepared systems.
+
+\paragraph{General definition (any observable).}
+Every measurable quantity (observable) is represented by an operator $\hat{A}$.  
+The general expression for its expectation value is:
+\[
+\boxed{\langle A \rangle = \int_{-\infty}^{\infty} \psi^*(x)\, \hat{A}\,\psi(x)\,dx.}
+\]
+Here:
+\begin{itemize}
+    \item $\psi(x)$ — normalized wavefunction, satisfying $\int |\psi|^2 dx = 1$,
+    \item $\psi^*(x)$ — its complex conjugate,
+    \item $\hat{A}$ — operator representing the observable.
+\end{itemize}
+
+\paragraph{Key examples.}
+\begin{align*}
+\text{Position:} \quad & \langle x \rangle = \int \psi^* x \psi\,dx, \\[5pt]
+\text{Momentum:} \quad & \langle p \rangle = \int \psi^* \left(-i\hbar\frac{d}{dx}\right)\psi\,dx, \\[5pt]
+\text{Kinetic energy:} \quad & \langle T \rangle = \int \psi^*\left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\right)\psi\,dx, \\[5pt]
+\text{Potential energy:} \quad & \langle U \rangle = \int \psi^*\,U(x)\,\psi\,dx, \\[5pt]
+\text{Total energy:} \quad & \langle E \rangle = \int \psi^* \hat{H}\psi\,dx.
+\end{align*}
+
+\paragraph{Interpretation.}
+\begin{itemize}
+    \item $\langle A \rangle$ gives the mean result of measuring observable $A$ over many identically prepared systems.
+    \item If $\psi$ is an eigenfunction of $\hat{A}$ with eigenvalue $a$, then $\hat{A}\psi = a\psi$, and
+    \[
+    \langle A \rangle = a.
+    \]
+      This corresponds to a definite (non-random) outcome.
+    \item If $\psi$ is a superposition of multiple eigenstates of $\hat{A}$, $\langle A \rangle$ represents a weighted average of their eigenvalues.
+\end{itemize}
+
+\paragraph{Expectation value of powers.}
+Sometimes it is useful to compute $\langle A^2 \rangle$ as well:
+\[
+\langle A^2 \rangle = \int \psi^*(x)\, \hat{A}^2\, \psi(x)\,dx.
+\]
+This helps quantify the spread (uncertainty) of possible measurements of $A$.
+
+\paragraph{Uncertainty (standard deviation).}
+The uncertainty or standard deviation in a measurement of observable $A$ is:
+\[
+\boxed{\sigma_A = \sqrt{\langle A^2 \rangle - \langle A \rangle^2}.}
+\]
+The smaller $\sigma_A$, the more precisely $A$ is known.  
+For position and momentum, these uncertainties obey the Heisenberg uncertainty principle:
+\[
+\boxed{\sigma_x \sigma_p \ge \frac{\hbar}{2}.}
+\]
+
+\paragraph{Example.}
+For a particle in a normalized wavefunction $\psi(x)=A e^{-x/L}$ defined for $x\ge 0$:
+\begin{align*}
+\langle x \rangle &= \int_0^{\infty} x|\psi(x)|^2 dx = \frac{L}{2}, \\[3pt]
+\langle p \rangle &= \int_0^{\infty} \psi^*(-i\hbar\,\frac{d\psi}{dx})\,dx = i\hbar/(2L) \ \text{(complex → not physical since $\psi(0)\neq0$)}, \\[3pt]
+\langle E \rangle &= \int_0^{\infty} \psi^* \left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\right)\psi\,dx.
+\end{align*}
+This illustrates the importance of using properly normalized, physically valid wavefunctions that satisfy boundary conditions.
+
+\paragraph{Summary.}
+\begin{itemize}
+    \item Every measurement corresponds to an operator $\hat{A}$ acting on $\psi$.
+    \item The expectation value $\langle A \rangle$ is the average measurement outcome:
+    \[
+    \langle A \rangle = \int \psi^* \hat{A} \psi\,dx.
+    \]
+    \item If $\psi$ is an eigenstate of $\hat{A}$, the expectation value equals the eigenvalue (a definite result).
+    \item If not, the result is probabilistic, characterized by $\langle A \rangle$ and the uncertainty $\sigma_A$.
+\end{itemize}
+
+\section*{7.10 Barrier Penetration and Quantum Tunneling}
+
+\paragraph{Overview.}
+In classical physics, a particle encountering a potential barrier higher than its total energy cannot cross — it is reflected entirely.  
+Quantum mechanics, however, predicts that a particle has a finite probability to “tunnel” through the barrier due to the wave-like nature of matter.  
+This phenomenon is called \textbf{quantum tunneling} or \textbf{barrier penetration}.
+
+\paragraph{The setup.}
+Consider a one-dimensional potential barrier of height $U_0$ extending from $x=0$ to $x=L$:
+\[
+U(x) =
+\begin{cases}
+0, & x < 0,\\[4pt]
+U_0, & 0 \le x \le L,\\[4pt]
+0, & x > L.
+\end{cases}
+\]
+A particle with total energy $E < U_0$ is incident from the left.
+
+\paragraph{Regions and wavefunctions.}
+The time-independent Schrödinger equation (TISE) in each region is
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + U(x)\psi = E\psi.
+\]
+
+\textbf{Region I ($x < 0$, free space):}
+\[
+U=0 \quad \Rightarrow \quad \frac{d^2\psi}{dx^2} + k^2\psi = 0,
+\quad \text{where } k = \frac{\sqrt{2mE}}{\hbar}.
+\]
+\[
+\psi_I(x) = Ae^{ikx} + Be^{-ikx}.
+\]
+$Ae^{ikx}$ represents the incident wave; $Be^{-ikx}$ represents the reflected wave.
+
+\textbf{Region II ($0 < x < L$, barrier):}
+\[
+U=U_0 > E \quad \Rightarrow \quad \frac{d^2\psi}{dx^2} - \kappa^2\psi = 0,
+\quad \text{where } \kappa = \frac{\sqrt{2m(U_0 - E)}}{\hbar}.
+\]
+\[
+\psi_{II}(x) = Ce^{\kappa x} + De^{-\kappa x}.
+\]
+The exponential form shows that the wave decays inside the barrier rather than oscillates.
+
+\textbf{Region III ($x > L$, free space):}
+\[
+U=0 \quad \Rightarrow \quad \psi_{III}(x) = Fe^{ikx}.
+\]
+Only a transmitted (right-moving) wave exists beyond the barrier.
+
+\paragraph{Boundary conditions.}
+The wavefunction and its first derivative must be continuous at $x=0$ and $x=L$:
+\[
+\psi_I(0) = \psi_{II}(0), \quad
+\psi_{II}(L) = \psi_{III}(L),
+\]
+\[
+\psi_I'(0) = \psi_{II}'(0), \quad
+\psi_{II}'(L) = \psi_{III}'(L).
+\]
+Solving these four equations determines the ratios between the amplitudes $A,B,C,D,F$ and allows us to compute the \textbf{transmission} and \textbf{reflection} probabilities.
+
+\paragraph{Transmission and reflection coefficients.}
+The \textbf{transmission coefficient} $T$ (fraction of the wave that passes through) is defined as
+\[
+T = \frac{\text{Transmitted current}}{\text{Incident current}} = \frac{|F|^2}{|A|^2}.
+\]
+The \textbf{reflection coefficient} $R$ is
+\[
+R = \frac{|B|^2}{|A|^2}.
+\]
+Since total probability must be conserved, $R + T = 1$.
+
+\paragraph{Approximate transmission probability.}
+For $E < U_0$ and a sufficiently thick barrier ($\kappa L \gg 1$),
+the transmission coefficient is approximately
+\[
+\boxed{T \approx e^{-2\kappa L}},
+\qquad
+\text{where } \kappa = \frac{\sqrt{2m(U_0 - E)}}{\hbar}.
+\]
+This exponential dependence means that the tunneling probability decreases rapidly with:
+\begin{itemize}
+    \item increasing barrier width $L$,
+    \item increasing barrier height $U_0$,
+    \item increasing particle mass $m$.
+\end{itemize}
+
+\paragraph{Physical interpretation.}
+\begin{itemize}
+    \item Inside the barrier, where $E < U(x)$, the classical particle would have negative kinetic energy — forbidden in classical mechanics.  
+      But quantum mechanically, $\psi(x)$ does not vanish; it merely decays exponentially.
+    \item If the barrier is not infinitely wide, some of the wave “leaks” through, emerging as a transmitted wave on the other side.
+    \item This leakage gives a non-zero probability of finding the particle beyond the barrier, even when $E < U_0$.
+\end{itemize}
+
+\paragraph{Examples of tunneling in nature.}
+\begin{itemize}
+    \item \textbf{Alpha decay:} An alpha particle escapes from a nucleus by tunneling through the nuclear potential barrier.
+    \item \textbf{Field emission:} Electrons tunnel from a metal surface under strong electric fields.
+    \item \textbf{Scanning tunneling microscope (STM):} Measures the tunneling current between a sharp metal tip and a conducting surface to map atomic-scale features.
+    \item \textbf{Semiconductors:} Electron tunneling underlies diode and transistor behavior (e.g., tunnel diodes, Josephson junctions).
+\end{itemize}
+
+\paragraph{Key results.}
+\begin{align*}
+\text{Barrier region decay constant:} \quad & \kappa = \frac{\sqrt{2m(U_0 - E)}}{\hbar},\\[4pt]
+\text{Transmission probability:} \quad & T \approx e^{-2\kappa L},\\[4pt]
+\text{Condition for significant tunneling:} \quad & \kappa L \lesssim 1.
+\end{align*}
+
+\section*{7.11 The Time-Dependent Schrödinger Equation (TDSE)}
+
+\paragraph{Motivation.}
+The time-independent Schrödinger equation (TISE) determines the \textbf{allowed stationary states} and their corresponding energies for systems whose potential $U(x)$ does not vary with time.  
+However, to describe how a quantum state evolves or changes in time — especially if it is a superposition of stationary states — we must use the more general \textbf{time-dependent Schrödinger equation (TDSE)}.
+
+\paragraph{Derivation from the stationary solution.}
+For a stationary (single-energy) state, we found that
+\[
+\Psi(x,t) = \psi(x)e^{-iEt/\hbar},
+\]
+where $\psi(x)$ satisfies the TISE:
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi(x)}{dx^2} + U(x)\psi(x) = E\psi(x).
+\]
+Differentiating $\Psi(x,t)$ with respect to time:
+\[
+\frac{\partial \Psi}{\partial t} = -\frac{iE}{\hbar}\Psi.
+\]
+Multiplying both sides by $i\hbar$ gives:
+\[
+i\hbar \frac{\partial \Psi}{\partial t} = E\Psi.
+\]
+Now substitute $E\Psi$ from the TISE:
+\[
+E\Psi = \left[-\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + U(x)\right]\Psi.
+\]
+Combining both results yields the \textbf{time-dependent Schrödinger equation}:
+\[
+\boxed{i\hbar\frac{\partial \Psi(x,t)}{\partial t} =
+\left[-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + U(x)\right]\Psi(x,t)}.
+\]
+
+\paragraph{Interpretation.}
+\begin{itemize}
+    \item The TDSE governs how the wavefunction $\Psi(x,t)$ evolves in time.
+    \item The Hamiltonian operator $\hat{H}$ (in brackets) represents the total energy operator.
+    \item The TDSE is a first-order differential equation in time but a second-order equation in space.
+    \item It ensures that probability is conserved:
+    \[
+    \frac{d}{dt}\int_{-\infty}^{\infty}|\Psi(x,t)|^2 dx = 0.
+    \]
+\end{itemize}
+
+\paragraph{Stationary states revisited.}
+When the potential $U(x)$ is constant in time, solutions can be separated into spatial and temporal parts:
+\[
+\Psi(x,t) = \psi(x)e^{-iEt/\hbar}.
+\]
+Each stationary state $\psi(x)$ oscillates in phase at frequency $\omega = E/\hbar$, but its probability density
+\[
+|\Psi(x,t)|^2 = |\psi(x)|^2
+\]
+remains constant in time.  
+Such states are called \textbf{stationary states} because all measurable quantities (like $\langle x \rangle$, $\langle p \rangle$, $\langle E \rangle$) are time-independent.
+
+\paragraph{Superpositions and time dependence.}
+A general wavefunction can be a linear combination of stationary states:
+\[
+\Psi(x,t) = \sum_n c_n\,\psi_n(x)e^{-iE_n t/\hbar}.
+\]
+The corresponding probability density is
+\[
+|\Psi(x,t)|^2 = \sum_n |c_n|^2|\psi_n(x)|^2
++ \sum_{m\neq n} c_m^*c_n\,\psi_m^*(x)\psi_n(x)e^{-i(E_n - E_m)t/\hbar}.
+\]
+The cross-terms (interference terms) oscillate in time with frequencies determined by energy differences $(E_n - E_m)/\hbar$.  
+This makes the overall probability density time-dependent — such states are \textbf{non-stationary}.
+
+\paragraph{Example: Superposition of two stationary states.}
+For two energy eigenstates $\psi_1$ and $\psi_2$:
+\[
+\Psi(x,t) = c_1\psi_1(x)e^{-iE_1t/\hbar} + c_2\psi_2(x)e^{-iE_2t/\hbar}.
+\]
+The resulting probability density is
+\[
+|\Psi|^2 = |c_1|^2|\psi_1|^2 + |c_2|^2|\psi_2|^2 +
+2\Re\!\left[c_1^*c_2\,\psi_1^*(x)\psi_2(x)e^{-i(E_2 - E_1)t/\hbar}\right].
+\]
+The oscillating interference term shows that the system’s spatial probability distribution changes with time — a direct signature of quantum superposition.
+
+\paragraph{Probability current and conservation.}
+The TDSE ensures local conservation of probability, described by the \textbf{continuity equation}:
+\[
+\frac{\partial}{\partial t}|\Psi|^2 + \frac{\partial j}{\partial x} = 0,
+\]
+where the probability current density $j$ is defined as
+\[
+j = \frac{\hbar}{2mi}\left(\Psi^*\frac{\partial \Psi}{\partial x} - \Psi\frac{\partial \Psi^*}{\partial x}\right).
+\]
+This equation expresses the conservation of probability — any change in total probability in a region results from flow across its boundaries.
+
+\paragraph{Physical meaning.}
+\begin{itemize}
+    \item The TDSE is to quantum mechanics what Newton’s second law is to classical mechanics: it determines the future evolution of a system from its present state.
+    \item Given $\Psi(x,0)$ at $t=0$, the TDSE uniquely determines $\Psi(x,t)$ for all future times.
+    \item Time evolution is \textbf{deterministic}, but measurement outcomes are probabilistic, governed by $|\Psi(x,t)|^2$.
+\end{itemize}
+
+\paragraph{Special case — free particle.}
+For a free particle ($U=0$):
+\[
+i\hbar\frac{\partial \Psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial x^2}.
+\]
+Plane-wave solutions take the form:
+\[
+\Psi(x,t) = A e^{i(kx - \omega t)},
+\]
+with $E = \hbar\omega = \frac{\hbar^2k^2}{2m}$, representing a particle of definite momentum $p = \hbar k$.
+
+\paragraph{Summary.}
+\begin{itemize}
+    \item The TDSE is the fundamental equation of motion for quantum systems:
+    \[
+    i\hbar\frac{\partial \Psi(x,t)}{\partial t} = \hat{H}\Psi(x,t).
+    \]
+    \item Stationary states yield time-independent probabilities, while superpositions produce time-varying interference patterns.
+    \item Probability is conserved through the continuity equation.
+    \item The TDSE generalizes the TISE and fully describes the dynamical evolution of any quantum state.
+\end{itemize}
+
+\section*{Summary of Key Equations}
+\begin{align*}
+&\text{Newton (classical):}\quad F = m\,\ddot x,\\[3pt]
+&\text{de Broglie:}\quad \lambda = \frac{h}{p},\quad p = \hbar k,\\[3pt]
+&\text{Planck / energy--frequency:}\quad E = \hbar\omega,\\[3pt]
+&\text{String standing waves:}\quad \lambda_n = \frac{2a}{n},\quad n=1,2,3,\dots,\\[3pt]
+&\text{Stationary state form:}\quad \Psi_n(x,t) = \psi_n(x)\,e^{-iE_n t/\hbar},\\[3pt]
+&\text{Infinite well potential:}\quad
+U(x)=
+\begin{cases}
+0,&0<x<a,\\
+\infty,&\text{otherwise},
+\end{cases}\\[6pt]
+&\text{Infinite well energies:}\quad
+E_n = \dfrac{n^2\pi^2\hbar^2}{2ma^2},\quad n=1,2,3,\dots,\\[3pt]
+&\text{Infinite well wavefunctions:}\quad
+\psi_n(x) = \sqrt{\dfrac{2}{a}}\,
+\sin\!\left(\dfrac{n\pi x}{a}\right),\\[3pt]
+&\text{Time-independent Schrödinger (TISE):}\quad
+-\dfrac{\hbar^2}{2m}\dfrac{d^2\psi}{dx^2} + U(x)\psi = E\psi,\\[3pt]
+&\text{Hamiltonian operator:}\quad
+\hat H = -\dfrac{\hbar^2}{2m}\dfrac{d^2}{dx^2} + U(x),\\[3pt]
+&\text{Basic operators:}\quad
+\hat x = x,\quad
+\hat p = -i\hbar\dfrac{d}{dx},\\[3pt]
+&\text{Expectation value (general):}\quad
+\langle A\rangle = \displaystyle\int_{-\infty}^{\infty}\psi^*(x)\,\hat A\,\psi(x)\,dx,\\[3pt]
+&\text{Uncertainty (standard deviation):}\quad
+\sigma_A = \sqrt{\langle A^2\rangle - \langle A\rangle^2},\\[3pt]
+&\text{Heisenberg uncertainty:}\quad
+\sigma_x\,\sigma_p \ge \dfrac{\hbar}{2},\\[3pt]
+&\text{Barrier decay constant:}\quad
+\kappa = \dfrac{\sqrt{2m(U_0 - E)}}{\hbar},\\[3pt]
+&\text{Tunneling (thick barrier approx.):}\quad
+T \approx e^{-2\kappa L},\\[3pt]
+&\text{Time-dependent Schrödinger (TDSE):}\quad
+i\hbar\dfrac{\partial\Psi}{\partial t}
+= \left[-\dfrac{\hbar^2}{2m}\dfrac{\partial^2}{\partial x^2} + U(x)\right]\Psi.
+\end{align*}
+
+\end{document}
+
